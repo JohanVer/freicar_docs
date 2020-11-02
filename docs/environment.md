@@ -29,9 +29,9 @@ Our docker container will provide most of the tools you need in a single contain
 Using the container feels like a virtual machine that does not have the performance limitations of traditional VMs.
 
 * Everytime when you want to use the environment you need start our container:
-Therefore type `fcc` in a new terminal. It will ask you for the password of the user freicar. Guess what, it is freicar. This container must run only in one terminal at a time!
+Therefore type `fcc` (freicar container)in a new terminal. It will ask you for the password of the user freicar. Guess what, it is freicar. This container must run only in one terminal at a time!
 
-* Everytime you want to open additional terminals that interact with the containered environment just open a new terminal and type `fct`. You will notice that the user changes to freicar.
+* Everytime you want to open additional terminals that interact with the containered environment just open a new terminal and type `fct` (freicar terminal). You will notice that the user changes to freicar.
 
 The directory freicar_deps and freicar_ws are shared with your host. So every data that you create inside the docker within this directory can be read by the host, or vice versa. Additionally only the data in these folders are persistent if you restart the docker environment. 
 
