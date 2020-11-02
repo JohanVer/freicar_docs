@@ -1,3 +1,3 @@
-# Welcome to the FreiCar Documentation
+# Welcome to the FreiCAR Documentation
 
-Work in progress
+This place hosts all necessary documentation for the course: FreiCAR: [Link](freicar.informatik.uni-freiburg.de).
