@@ -10,17 +10,18 @@ To setup everything on your pc you will need:
 2. Ubuntu 18.04
 
 In the following we describe the individual steps to make your pc ready!
-* Install the latest nvidia driver on your pc. We recommend to use at least version 450.
-  * `sudo apt-get purge nvidia*` get rid of your old driver
-  * `sudo apt-get install nvidia-driver-455`
-  * restart your pc
-* Clone the following repo to your pc (the hdd should have 30 gb free)
-  * `git clone https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
-  * enter the cloned repo : `cd freicar_docker`
-  * install docker-ce and nvidia-docker with our script: `./install_docker.bash`
-  * build the entire environment and download the simulator (this will take a while): `./setup.bash`
-* Restart your computer (otherwise the docker deamon might not be started)
-* You are all set! :) 
+
+- Install the latest nvidia driver on your pc. We recommend to use at least version 450.
+  - `sudo apt-get purge nvidia*` get rid of your old driver
+  - `sudo apt-get install nvidia-driver-455`
+  - restart your pc
+- Clone the following repo to your pc (the hdd should have 30 gb free)
+  - `git clone https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
+  - enter the cloned repo : `cd freicar_docker`
+  - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
+  - build the entire environment and download the simulator (this will take a while): `./setup.bash`
+- Restart your computer (otherwise the docker deamon might not be started)
+- You are all set! :) 
 
 ###Usage
 Our scripts add a few aliases to your bashrc. So after building everything close every open terminal so that on the next start everything gets sourced correctly.
