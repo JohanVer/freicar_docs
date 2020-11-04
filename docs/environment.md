@@ -36,5 +36,6 @@ Therefore type `fcc` (freicar container)in a new terminal. It will ask you for t
 
 The directory freicar_deps and freicar_ws are shared with your host. So every data that you create inside the docker within this directory can be read by the host, or vice versa. Additionally only the data in these folders are persistent if you restart the docker environment. 
 
+Inside the docker container (for example if you executed fcc or an additional terminal with fct) you can start the simulator by typing : "freicarsim"
 
 
