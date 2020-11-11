@@ -2,5 +2,6 @@ site_name: FreiCar Docs
 nav:
     - Home: index.md
     - Environment: environment.md
+    - FreiCar Map: nodes/freicar_map.md
 #    - Simulator: simulator.md
 theme: readthedocs
