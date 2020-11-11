@@ -402,7 +402,7 @@ ___
 Returns the standard string of a Uuid object.
 ___
 ### operator overloads
-The following operators are overloaded for the `Point3D` class. Some of them do not make sense for a 3D point in a geometric sense but were added to avoid a back and forth switching to `Eigen`.
+The following operators are overloaded for the `Point3D` class. Some of them do not make sense (geometrically) for a 3D point but were added to avoid a back and forth switching to `Eigen`.
 ```cpp
 Point3D Point3D::operator-(const Point3D &rhs);
 Point3D Point3D::operator+(const Point3D &rhs);
@@ -529,7 +529,7 @@ Returns the offset of the point along the lane.
 ### `Point3D LanePoint3D::AsPoint3D()`
 If there's ever necessary to change a `LanePoint3D` to a `Point3D`, e.g. to pass it to a function that only accepts the latter, this function can be used.
 ___
-## 8.3. Planners
+## 8.3. Thrift Map Proxy
 ### `ThriftMapProxy(std::string remote_address, int remote_port = 9091, int local_server_port = 9090)`
 The constructor for the thrift map proxy. The remote address is the IP of the machine that is running the Map GUI. The remote and local ports are usually `9091` and `9090` respectively.
 ### `bool LoadMapFromFile(std::string path)`
@@ -542,4 +542,4 @@ Starts a local server to receive the map from a remote machine.
 Stops the aforementioned map server.
 ___
 ## 8.4. Planners
-A full explanation of the planners is provided in [section 4.2](##51-Planning)
+A detailed explanation of planners is provided in [section 4.2](##51-Planning)
