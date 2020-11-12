@@ -1,6 +1,5 @@
 # FreiCar Map
 A map typically contains all the relevant information about the environment. Our map has a hierarchichal structure that provides access on multiple levels, depending on the requirement. The current structure can describe:
-
 * lanes
 * junctions
 * road signs
@@ -81,6 +80,7 @@ The two libraries `freicar_globalmap` and `freicar_map_framework` are exported b
 
 ## 2.2. Including the Headers
 The headers can be accessed through two main directories
+
 - `freicar_map`
 - `map_core`
 
@@ -98,13 +98,13 @@ Access to the map is provided through a singleton object that should be initiali
 Both of these approaches make use of the [Thrift library](https://thrift.apache.org/lib/cpp.html) and its serialization capabilities. The latter is currently only possible using the Map GUI that is accessible to the administrator. `ThriftMapProxy` provides an interface to high level thrift functionalities. You need an instance of this class to intialize the map. This [code snippet](#61-intializing-the-map) shows a typical initialization of the map singleton. It first tries to read the map from a file and starts a TCP server if it fails. The path is read from a private ROS parameter.
 
 # 4. Map Structure
-As mentioned, the map has a hierarchical structure. Almost all of them however inherit from `mapobjects::MapObject`. The base class contains a single member variable, namely it's unique ID, or `uuid`. These IDs are generated once by the main map GUI and are persistant across usages. In the following, separate strucutres in the map are introduced.
+As mentioned, the map has a hierarchical structure. Almost all of them however inherit from `mapobjects::MapObject`. The base class contains a single member variable, namely its unique ID, or `uuid`. These IDs are generated once by the main map GUI and are persistant across usages. In the following, separate strucutres in the map are introduced.
 
 ## 4.1. LaneGroup
 You can think of a lane group as all of the lanes in a section of a street. It provides access to the underlying lanes by `GetLeftLanes()` and `GetRighttLanes()`. You most likely will not need to use the lane groups directly.
 
 ## 4.2. Lane
-Lanes are destingushed by their unique uuid. Lanes are made out of `Point3D` objects: 3D points in space that define the curvature of the lane. Each lane also has a `Lane::Connection` to each of its neighbors. These connections can potentially define:
+Lanes are destingushed by their uuid. Lanes are made out of `Point3D` objects: 3D points in space that define the curvature of the lane. Each lane also has a `Lane::Connection` to each of its neighbors. These connections can potentially define:
 
 - `JUNCTION_STRAIGHT`: The next lane in a junction that goes straight
 - `JUNCTION_LEFT`: The next lane in a junction that turns left
@@ -120,15 +120,16 @@ Lanes are destingushed by their unique uuid. Lanes are made out of `Point3D` obj
 As mentioned, `LaneGroup`s are sections of a street, no the entire street. Therefor `Lane`s which are themselves children of lanegroups, are a section of a lane in a street, not the entire length of the lane.
 ### LaneObject
 Each lane can have multiple objects. Currently, the following categories are defined:
+
 - `Roadsign`: traffic signs that belong to a lane, each contains a string
 - `Parking`: parking spaces, contains `Point3D`s that defined the perimeter
 - `Crosswalk`: defined by its offset along the lane 
 - `StopLine`: defined by its offset along the lane
 
 ### LaneMarking & LaneMarkingContainer
-Each lane has two lane markings, on the left and on the right. Lane markings are also `MapObject`s, meaning they have a unique identifier. This way, lanes can share a lane marking, e.g. the left lane marking of a lane can be a right lane marking of another. You can access the LaneMarkingContainer of a lane, which in turn gives you access to the left and the right lane markings.
+Each lane has two lane markings, on the left and on the right. Lane markings are also `MapObject`s, meaning they have a unique identifier. This way, lanes can share a lane marking, e.g. the left lane marking of a lane can be the right lane marking of another. You can access the LaneMarkingContainer of a lane, which in turn gives you access to the left and the right lane markings.
 
-Each lane marking also a has type that provides abstract but useful information. E.g. you can figure out if you're allowed to overtake another car, if the lane marking on the left has the type `DASHED` as opposed to `SOLID`.
+Each lane marking also a has type that provides abstract but useful information. E.g. one can figure out if it's allowed to overtake another car, by checking if the left lane marking has the type `DASHED`, and not `SOLID`. Although that should most likely be infered by your perception system.
 ## 4.3. Junctions
 Junctions are objects that are created during the post-processing of the map. Each junction has a unique integer ID to help you distinguish between them. It also has functions such as `GetIncomingLanes()` and `GetOutogingLanes()` that return the uuid of lanes that lead into that junction, or lead out of it respectively.
 
@@ -142,27 +143,30 @@ Currently, two main features are built on top of `freicar::map::Map`, namely `fr
 
 ## 5.1. Planning
 We have implemented two planners so far:
-* lane-star: A* on the lane level
-* lane-follower: follows the lane and takes turns based on a given command
+
+- lane-star: A* on the lane level
+- lane-follower: follows the lane and takes turns based on a given command
 
 ### Plan
 Both planners return a `freicar::planning::Plan` object with equidistant nodes. You can directly access the plan steps, which contain 
-* `bool success`: shows whether the planner was successful in finding a plan
-* `std::string lane_uuid`: id of the lane it belongs to
-* `mapobjects::Point3D position`: the 3D location
-* `float lane_offset`: offset of that point in the lane
-* `float plan_offset`: offset of that point in the plan
-* `mapobjects::Lane::Connection path_description`: description of the relation of a point's lane w.r.t. last lane in the plan.
+
+- `bool success`: shows whether the planner was successful in finding a plan
+- `std::string lane_uuid`: id of the lane it belongs to
+- `mapobjects::Point3D position`: the 3D location
+- `float lane_offset`: offset of that point in the lane
+- `float plan_offset`: offset of that point in the plan
+- `mapobjects::Lane::Connection path_description`: description of the relation of a point's lane w.r.t. last lane in the plan.
 
 The plans are compatible, meaing you can append a plan from the lane-star planner directly to a plan generated by lane-follower. You however are responsible for making sure that it makes sense, i.e. your agent can follow that trajectory.
 
 ### lanestar
 For lane star, you need an object of the `LaneStar` class. You must define the maximum number of a-star steps before it gives up on finding a path. `100` will be more than enough for any application in this course. Afterwards, you can use `GetPlan()` to get a your desired plan. You will need to pass in the following parameters:
-* `Point3D start`: where you want to start planning from
-* `float start_heading`: the heading
-* `Point3D goal`: your goal position
-* `float goal_heading`: goal heading
-* `float p2p_distance`: the desired distance between the steps in the plan
+
+- `Point3D start`: where you want to start planning from
+- `float start_heading`: the heading
+- `Point3D goal`: your goal position
+- `float goal_heading`: goal heading
+- `float p2p_distance`: the desired distance between the steps in the plan
 
 The headings are just there to make sure the correct lane is chosen. E.g. if your starting position is close to two different lanes, the heading helps choose the correct one.
 For consecutive `GetPlan()` calls, you should use `ResetContainers()` first to clean up the search results from the last step.
@@ -170,17 +174,19 @@ For consecutive `GetPlan()` calls, you should use `ResetContainers()` first to c
 ### LaneFollower
 This planner starts from a given position and follows along the lanes for a speicifed distance. If it reaches a junction, it'll use the given command to choose a direction to go.
 For this planner, there is no object needed. You can call one of the two overloads of `freicar::planning::lane_follower::GetPlan()`:
-* `Point3D current_position`: x, y, z
-* [`PlannerCommand`](#76-planner-command) `command`: it should be `LEFT`, `RIGHT`, `STRAIGHT` or `RANDOM`
-* `float distance`: the desired plan length
-* `unsigned int step_count`: the number of desired steps in the plan
+
+- `Point3D current_position`: x, y, z
+- [`PlannerCommand`](#76-planner-command) `command`: it should be `LEFT`, `RIGHT`, `STRAIGHT` or `RANDOM`
+- `float distance`: the desired plan length
+- `unsigned int step_count`: the number of desired steps in the plan
 
 OR
-* `std::string lane_uuid`: the current lane
-* `float req_loffset`: the offset along that lane
-* [`PlannerCommand`](#76-planner-command) `command`: same as before
-* `float distance`: same as before
-* `unsigned int step_count`: same as before
+
+- `std::string lane_uuid`: the current lane
+- `float req_loffset`: the offset along that lane
+- [`PlannerCommand`](#76-planner-command) `command`: same as before
+- `float distance`: same as before
+- `unsigned int step_count`: same as before
 
 ### JointPlanner
 This class combines the mentioned planners (+ 2 others) into a single object using the [strategy pattern](https://sourcemaking.com/design_patterns/strategy/cpp/1). It's currently used internally to ease the switch between different planning modes. It does not offer anything extraordinary compared to the other two planners. This [code snippet](#62-jointplanner-example) shows a typical use case of the joint planner.
@@ -189,12 +195,13 @@ Not all functionalities are offered by all strategies. E.g. the lane follower do
 
 ## 5.2. Logic
 Currently, the logic section only offers right-of-way calculation for junctions. To get whether an agent has right of way, it should send some data about itself and all the other percieved agents at the junction. This data includes:
-* `std::string a_name`: the name (can be arbitrary)
-* `std::string l_uuid`: the uuid of the lane the agent is on
-* `float l_offset`: its offset along that lane
-* `geometry_msgs::Vector3 velo`: its velocity vector
-* `geometry_msgs::TransformStamped pose`: its 3D pose
-* `Intent intnt`: its intent at the junction: `GOING_STRAIGHT`, `GOING_LEFT`, `GOING_RIGHT` or `NONE` (unknown)
+
+- `std::string a_name`: the name (can be arbitrary)
+- `std::string l_uuid`: the uuid of the lane the agent is on
+- `float l_offset`: its offset along that lane
+- `geometry_msgs::Vector3 velo`: its velocity vector
+- `geometry_msgs::TransformStamped pose`: its 3D pose
+- `Intent intnt`: its intent at the junction: `GOING_STRAIGHT`, `GOING_LEFT`, `GOING_RIGHT` or `NONE` (unknown)
 
 The function `GetRightOfWay` then returns whether the agent has the right of way, whether the junction is already occupied by another agent and the name of the agent that has won the right-of-way (in case of losing RoW, it could be useful).
 
@@ -542,4 +549,4 @@ Starts a local server to receive the map from a remote machine.
 Stops the aforementioned map server.
 ___
 ## 8.4. Planners
-A detailed explanation of planners is provided in [section 4.2](##51-Planning)
+A detailed explanation of planners is provided in [section 5.1.](#51-Planning)
