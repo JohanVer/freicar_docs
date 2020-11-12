@@ -378,11 +378,11 @@ Both calls return a pointer to the requested lane, `nullptr` if invalid.
 ### `mapobjects::LaneGroup* FindLaneGroupByUuid(mapobjects::Uuid lanegroup_uuid)`
 Returns a pointer to the requested lanegorup, `nullptr` if the uuid is invalid.
 ### `int GetUpcomingJunctionID(std::string lane_uuid_value)`
-Returns the id of the junction, given that the goven lane directly precedes a junction; `-1` otherwise.
+Returns the id of the junction, given that the specified lane directly precedes a junction; `-1` otherwise.
 ### `int GetPastJunctionID(std::string lane_uuid_value)`
-Returns the id of the junction, given that the current lane directly follows a junction; `-1` otherwise.
+Returns the id of the junction, given that the specified lane directly follows a junction; `-1` otherwise.
 ### `int GetCurrentJunctionID(std::string lane_uuid_value)`
-Returns the id of the junction, given that the current lane belongs to a junction; `-1` otherwise.
+Returns the id of the junction, given that the specified lane belongs to a junction; `-1` otherwise.
 ### `std::vector<mapobjects::Junction> GetJunctions()`
 Returns a vector of all junction objects.
 ### `mapobjects::Junction GetJunctionByID(int junction_id)`
@@ -474,7 +474,7 @@ Returns the type of the sign. So far "RightOfWay" and "Stop" are used.
 Returns the 3D coordinates of the road sign.
 ___
 ### `bool Lane::IsOffroad()`
-There is a dummy lane in the structure with "?" as its uuid. Some agents report this as their current lane uuid to indicate, they're not close to any road.
+There is a dummy lane in the structure with "?" as its uuid. Some agents report this as their current lane uuid to indicate they're not close to any road.
 ### `std::vector<const Roadsign*> Lane::GetRoadSigns()`
 Returns a list of all road signs (by pointer).
 ### `bool Lane::HasRoadSign(std::string sign_name)`
@@ -517,7 +517,7 @@ Returns a list of all the lanes that enter the junction.
 ### `std::vector<Uuid> Junction::GetOutgoingLanes()`
 Returns a list of all the lanes that exit the junction.
 ### `std::vector<Point3D> Junction::GetBoundaryPoints()`
-Returns a list of the points that more or less defined the perimeter of the junction.
+Returns a list of the points that more or less define the perimeter of the junction.
 ### `int Junction::GetID()`
 Returns the junction id.
 ### `Point3D Junction::GetHandlePoint()`
@@ -530,7 +530,7 @@ Return the uuid of the lane that the point belongs to.
 ### `unsigned int LanePoint3D::GetIndex()`
 Returns the index of the point in the vector of `Point3D` objects inside that lane.
 ### `float LanePoint3D::GetHeading()`
-Although points technically do not have a heading, `LanePoint3D` can specify the direction of the road at that point.
+Although points technically do not have a heading, `LanePoint3D` can specify the direction of the lane at that point.
 ### `float LanePoint3D::GetLaneOffset()`
 Returns the offset of the point along the lane.
 ### `Point3D LanePoint3D::AsPoint3D()`
@@ -549,4 +549,4 @@ Starts a local server to receive the map from a remote machine.
 Stops the aforementioned map server.
 ___
 ## 8.4. Planners
-A detailed explanation of planners is provided in [section 5.1.](#51-Planning)
+A detailed explanation of planners is provided in [section 5.1.](#51-planning)
