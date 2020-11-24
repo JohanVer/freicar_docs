@@ -70,7 +70,7 @@ Each agent must publish a message of this type on  `freicar_status` at least onc
 You can think of services as bidirectional ROS message. We currently have two services.
 
 ### 5.2.1. [Track Request](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/srv/Track.srv)
-Track requests are served by the [chaperone node](#4-freicar-chaperone). Each agent must send a track request at initialization, stating its name, the name if its tf frame and whether it's a scripted agent. The latter is only true for the scripte agents in the [freicar_carla_agent](#3-freicar-carla-agent) node. As the agent is shutting down, it must send another request with `bool track` set to false. Currently [freicar_agent](#1-freicar-agent) handles sending these track requests.
+Track requests are served by the [chaperone node](#4-freicar-chaperone). Each agent must send a track request at initialization, stating its name, the name of its tf frame and whether it's a scripted agent. The latter is only true for the scripted agents in the [freicar_carla_agent](#3-freicar-carla-agent) node. As the agent is shutting down, it must send another request with `bool track` set to false. Currently [freicar_agent](#1-freicar-agent) handles sending these track requests.
 
 ### 5.2.2. [WayPoint Request](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/srv/WayPoint.srv)
 This is a deprecated service in `freicar_map`. It has the same functionality as `freicar::planning::lane_follower::GetPlan(...)`. It'll most likely be removed in a future commit.
@@ -131,7 +131,7 @@ If `no-render-mode` is set to true, the simulator will stop rendering completely
 **Note:** This does not determine the simulator's FPS, although it can affect it. It also doesn't determine the amount of data you get from the sensors. Those are set in the sensor description file.
 
 ### synchronous mode
-if `synchronous` is set to true, the simulation server will not proceed until a `Tick()` is received. Technically all CARLA clients can send it but this node is responsible for the sake of consistency. Setting this to true will start a thread ([currently deactivated](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_setting/src/main.cpp#L86)) that tries to tick the server according to `sim-steps-per-second`.
+if `synchronous` is set to true, the simulation server will not proceed until a `Tick()` is received. Technically all CARLA clients can send it but this node is currently the only one responsible for the sake of consistency. Setting this to true will start a thread ([currently deactivated](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_setting/src/main.cpp#L86)) that tries to tick the server according to `sim-steps-per-second`.
 
 You can read more about [world settings](https://carla.readthedocs.io/en/latest/python_api/#carla.WorldSettings) and [client-server synchrony](https://carla.readthedocs.io/en/latest/adv_synchrony_timestep/).
 
