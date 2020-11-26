@@ -1,5 +1,6 @@
 # FreiCar Map
 A map typically contains all the relevant information about the environment. Our map has a hierarchichal structure that provides access on multiple levels, depending on the requirement. The current structure can describe:
+
 * lanes
 * junctions
 * road signs
@@ -8,6 +9,7 @@ A map typically contains all the relevant information about the environment. Our
 
 # 1. Compiling the Node
 The following external depenecies are required for compiling the node. They are already installed in your docker image, so no need to do anything extra.
+
 - Eigen
 - nanoflann
 - Thrift
@@ -84,7 +86,7 @@ The headers can be accessed through two main directories
 - `freicar_map`
 - `map_core`
 
-Although you will most likely never need to include headers from the core structure.
+You will most likely never need to include any core header, other than `map_core/freicar_map.h` which contains the map class itself.
 ```cpp
 #include <freicar_map/planning/lane_star.h>
 #include <freicar_map/logic/right_of_way.h>
@@ -92,19 +94,20 @@ Although you will most likely never need to include headers from the core struct
 ```
 # 3. Initialization
 Access to the map is provided through a singleton object that should be initialized at the start of each program. There are two ways of initialzing:
+
 1. Using a file
 2. Receiving the map over TCP
 
 Both of these approaches make use of the [Thrift library](https://thrift.apache.org/lib/cpp.html) and its serialization capabilities. The latter is currently only possible using the Map GUI that is accessible to the administrator. `ThriftMapProxy` provides an interface to high level thrift functionalities. You need an instance of this class to intialize the map. This [code snippet](#61-intializing-the-map) shows a typical initialization of the map singleton. It first tries to read the map from a file and starts a TCP server if it fails. The path is read from a private ROS parameter.
 
 # 4. Map Structure
-As mentioned, the map has a hierarchical structure. Almost all of them however inherit from `mapobjects::MapObject`. The base class contains a single member variable, namely its unique ID, or `uuid`. These IDs are generated once by the main map GUI and are persistant across usages. In the following, separate strucutres in the map are introduced.
+As mentioned, the map has a hierarchical structure. Almost all of the components inherit from `mapobjects::MapObject`. The base class contains a single member variable, namely its unique ID, or `uuid`. These IDs are generated once by the main map GUI and are persistant across usages. In the following, separate strucutres in the map are introduced.
 
 ## 4.1. LaneGroup
 You can think of a lane group as all of the lanes in a section of a street. It provides access to the underlying lanes by `GetLeftLanes()` and `GetRighttLanes()`. You most likely will not need to use the lane groups directly.
 
 ## 4.2. Lane
-Lanes are destingushed by their uuid. Lanes are made out of `Point3D` objects: 3D points in space that define the curvature of the lane. Each lane also has a `Lane::Connection` to each of its neighbors. These connections can potentially define:
+Lanes are destingushed by their uuids and are made out of `Point3D` objects: 3D points in space that define the curvature of the lane. Each lane also has a `Lane::Connection` to each of its neighbors. These connections can potentially define:
 
 - `JUNCTION_STRAIGHT`: The next lane in a junction that goes straight
 - `JUNCTION_LEFT`: The next lane in a junction that turns left
@@ -122,7 +125,7 @@ As mentioned, `LaneGroup`s are sections of a street, no the entire street. There
 Each lane can have multiple objects. Currently, the following categories are defined:
 
 - `Roadsign`: traffic signs that belong to a lane, each contains a string
-- `Parking`: parking spaces, contains `Point3D`s that defined the perimeter
+- `Parking`: parking spaces, contains `Point3D`s that define the perimeter
 - `Crosswalk`: defined by its offset along the lane 
 - `StopLine`: defined by its offset along the lane
 
@@ -131,12 +134,12 @@ Each lane has two lane markings, on the left and on the right. Lane markings are
 
 Each lane marking also a has type that provides abstract but useful information. E.g. one can figure out if it's allowed to overtake another car, by checking if the left lane marking has the type `DASHED`, and not `SOLID`. Although that should most likely be infered by your perception system.
 ## 4.3. Junctions
-Junctions are objects that are created during the post-processing of the map. Each junction has a unique integer ID to help you distinguish between them. It also has functions such as `GetIncomingLanes()` and `GetOutogingLanes()` that return the uuid of lanes that lead into that junction, or lead out of it respectively.
+Junctions are objects that are created during the post-processing of the map. Each junction has a unique integer ID to help you distinguish between them. It also has functions such as `GetIncomingLanes()` and `GetOutogingLanes()` that return the uuids of the lanes that lead into that junction, or lead out of it respectively.
 
 The map class also creates associative containers that help you figure out junction related information about a lane. E.g. you can figure out if the current lane leads into a junction using `GetUpcomingJunctionID()`.
 
 ## 4.4. LanePoint3D
-As mentioned, each lane is made up of `Point3D`s. To help search for the closest lane point on the map, we use a KD-tree and the `LanePoint3D` class. It inherits from `Point3D` and adds metadata to each point, such as the id lane it belongs to, its heading, its offset along the lane and its index in the `std::vector<Point3D>` in the `Lane` object.
+As mentioned, each lane is made up of `Point3D`s. To help search for the closest lane point on the map, we use a KD-tree and the `LanePoint3D` class. It inherits from `Point3D` and adds metadata to each point, such as the uuid of the lane it belongs to, its heading, its offset along the lane and its index in the `std::vector<Point3D>` in the `Lane` object.
 
 # 5. Map Framework
 Currently, two main features are built on top of `freicar::map::Map`, namely `freicar::planning` and `freicar::logic`.
@@ -217,7 +220,7 @@ if (!ros::param::get("~map_path", map_path)) {
     ROS_ERROR("could not find parameter: map_path! map initialization failed.");
     return;
 }
-// if should wait for network or the map can't be loaded
+// if the map can't be loaded
 if (!map_proxy.LoadMapFromFile(map_path)) {
     ROS_INFO("could not find thriftmap file: %s, starting map server...", map_path.c_str());
     map_proxy.StartMapServer();
