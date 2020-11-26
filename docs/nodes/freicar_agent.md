@@ -48,6 +48,7 @@ private:
 ```
 ## 1.1. Settings struct
 This struct contains the parameters that are set via ROS or read from the host:
+
 - **type_code**: could be `freicar::agent::type::REAL` or `freicar::agent::type::SIMULATED` or both (bitwise or), set via local ROS parameter
 - **thread_sleep_ms**: global ROS parameter set by the 'freicar_setting` node
 - **name**: local ROS parameter set by the launch file
