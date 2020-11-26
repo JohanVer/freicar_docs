@@ -52,8 +52,8 @@ This struct contains the parameters that are set via ROS or read from the host:
 - **type_code**: could be `freicar::agent::type::REAL` or `freicar::agent::type::SIMULATED` or both (bitwise or), set via local ROS parameter
 - **thread_sleep_ms**: global ROS parameter set by the 'freicar_setting` node
 - **name**: local ROS parameter set by the launch file
-- **owner**: name of the host
-- **tf_name**: "username@hostname"
+- **owner**: "username@hostname"
+- **tf_name**: name of the tf frames for this agent (same as name for simulated agents)
 
 Note that if any of these parameters are missing, the node exits abrputly. E.g. `thread_sleep_ms` relies on `freicar_setting` for the `sim_sps` parameter. If that node is not running, intialization fails.
 
