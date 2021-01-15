@@ -15,7 +15,7 @@ This task involves taking turns at junctions and considering stop signs and righ
 For stop-signs stop at the stop-line at least 1 sec, for right-of-way signs continue driving without interruption.
 
 For this task there is no other traffic on the map.
-A turn is successful if the vehicle does not enter a forbidden lane completely (e.g opposite) while turning and the correct junction arm (as sent in the high-level command) is fully entered. Cutting lanes while turning is allowed.
+A turn is successful if the vehicle does not enter a forbidden lane completely (e.g opposite) while turning and the correct junction arm (as sent in the high-level command) is fully entered. 
 You can try the task 5 times (The attempt counter is incremented as soon as an unsuccessful turn is executed). After the last attempt we continue with the next task.
 
 #### 3. Consider other vehicles
