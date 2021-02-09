@@ -5,4 +5,4 @@
 Markdown | Less | Pretty
 --- | --- | ---
 *Still* | `renders` | **nicely**
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "") | 2 | 3
+![alt text](https://github.com/JohanVer/freicar_docs/blob/master/images/maps/freicar1.png "") | 2 | 3
