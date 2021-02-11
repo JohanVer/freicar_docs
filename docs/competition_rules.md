@@ -38,7 +38,7 @@ In addition to the task rules as stated above, the team of supervisors will judg
 #### Notes:
 
 - The vehicle will be re-spawned to an initial pose and initial state after each task.
-- No code change is allowed between the attempts. This includes the prohibition to use any task-specific agent profiles (the vehicle cannot know which task it is solving at a given time) 
+- No code change is allowed between the attempts. This includes the prohibition to use any task-specific agent profiles (the vehicle cannot know which task it is solving at a given time) changing the foundational logic of your overall approach (i.e. switching a component on or off). But changes to single parameters of a component are fine. Code recompilation between tasks or runs is also not allowed.
 - The final competition map will not be available before the competition. 
 
 Full marks (10 P) for a task will be given if the required number of successful attempts is reached. Partial marks (< 10 P) will be awarded if the required number of successful attempts is not reached. The exact number of points awarded is decided by the supevisor team according to the severeness of the occured failure and the overall situational circumstances.
