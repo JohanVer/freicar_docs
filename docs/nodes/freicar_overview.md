@@ -148,4 +148,4 @@ Indicates whether the synchronous mode has been activated. So far, no node uses 
 Indicates whether the no-render mode has been activated. So far, no node uses this information.
 
 # 9. Raiscar Messages
-This package contains legacy messages from the audi cup that are not yet integrated into the FreiCar project.
+This package contains low level messages for controlling the car. This package is from our old software framework and still needs to be renamed,
