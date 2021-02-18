@@ -7,7 +7,7 @@ Overall you have to solve the following tasks:
 
 #### 1. Follow a circular race track (10 P)
 This is the first task you have to solve. A map is given that consists of a single circular route with a 1/1 road scheme (1 ego-lane, 1 opposite-lane).
-Your task is to follow this track at least one round as fast as possible. No high level commands will be sent for this task. There are no other cars and no traffic signs have to be considered. Leaving the road or fully entering the opposing lane counts as a failed attempt. You can try the task 5 times. After the last attempt we continue with the next task.
+Your task is to follow this track at least one round as fast as possible. No high level commands will be sent for this task. There are no other cars and no traffic signs have to be considered. You can try the task 5 times. After the last attempt we continue with the next task.
 
 #### 2. Follow a complex road topology (10 P)
 This task involves taking turns at junctions and considering stop signs and right-of-way signs. Your car is controlled by the supervision team with high-level commands (see below) and is supposed to take at least 5 successfull turns in a row. If no high-level command is sent before a junction, an arbitrary direction can be selected.
@@ -32,9 +32,11 @@ You can try the task 5 times (you have to get 2/5 overtaking maneuvers correct).
 #### Agent behavior assessment (10 P)
 
 In addition to the task rules as stated above, the team of supervisors will judge the overall vehicle behavior in all tasks according to the following rules:
+
 - Driving style: The vehicle should follow a smooth driving trajectory and should drive with reasonable speed (faster than a snail) when it is safe.
 - Behavior w.r.t other vehicles: A safe distance should be kept to all traffic participants at all times. The vehicle should yield at a right-of-way sign if another vehicle is approaching. Crashing into other vehicles is not allowed.
-  
+- Leaving the road or fully entering the opposing lane counts as a failed attempt
+
 #### Notes:
 
 - The vehicle will be re-spawned to an initial pose and initial state after each task.
