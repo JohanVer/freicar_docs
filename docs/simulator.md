@@ -18,6 +18,7 @@ There are two ways to define the initial spawn pose of the car:
  If ```use_yaml_spawn``` is set to true the spawn pose will be read from the files located in ``` freicar_base/freicar_launch/spawn_positions ``` depending on the map that is defined by the global parameter ```map_path``` (set in ```sim_base.launch```).
 
 The heading angle is in degree and defined as follows:
+
 ![angle_definition](https://github.com/JohanVer/freicar_docs/raw/master/images/angle_def.png "")  
    
 
