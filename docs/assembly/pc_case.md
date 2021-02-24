@@ -89,7 +89,7 @@ the next step.
 
     ![s008](img/asm/pc_case/stp/S008.svg)
 
-9. Slide the remaining ***Side Panels*** into their respective groves.
+9. Slide the remaining ***Side Panels*** into their respective grooves.
 
     ![s009](img/asm/pc_case/stp/S009.svg)
    
