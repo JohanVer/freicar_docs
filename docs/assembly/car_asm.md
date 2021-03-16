@@ -21,8 +21,25 @@ This page contains the instructions for mounting all the previously assembled su
 
 
 # Assembly Steps
+### I. Batteries
 
-### I. Front Sensor Bracket
+ 1. Place two or three velcro loops around the  ***PC Battery Holder***.
+
+    ![s0001](img/asm/car/stp/S0001.svg)
+   
+ 2. Fasten the ***PC Battery Holder*** to the ***Chassis*** using the original *M3x8 Countersunk head* screws.
+
+    ![s0002](img/asm/car/stp/S0002.svg)
+   
+ 3. Place the ***22.2V 5000mAh Battery*** in the ***PC Battery Holder***, with the cables facing forward, and secure it using the velcro straps.
+
+    ![s0003](img/asm/car/stp/S0003.svg)
+   
+ 4. Place the ***7.4V 5200mAh Battery*** in the ***Motor Battery Holder*** with the power jacks facing backward, and secure it using the velcro straps.
+
+    ![s0004](img/asm/car/stp/S0004.svg)
+
+### II. Front Sensor Bracket
  
  1. Place the ***Front Sensor Bracket*** to the car's ***Front Suspension Tower***, aligning the mounting holes in both parts.
 
@@ -34,16 +51,16 @@ This page contains the instructions for mounting all the previously assembled su
    
  3. Attach the ***Front Sensor Bracket*** to the car's ***Front Suspension Tower*** from the back using two *M3x16 Socket head* screws.
 
-    ![s0101](img/asm/car/stp/S0103.svg)
+    ![s0103](img/asm/car/stp/S0103.svg)
    
  4. Final placement.
 
-    ![s0102](img/asm/car/stp/S0104.svg)
+    ![s0104](img/asm/car/stp/S0104.svg)
 
 
 
     
-## II. Rear Sensor Bracket
+## III. Rear Sensor Bracket
  
  1. Align the ***Rear Sensor Bracket*** to the car's ***Rear Suspension Tower***.
 
@@ -63,7 +80,7 @@ This page contains the instructions for mounting all the previously assembled su
 
 
 
-## III. Bottom Spacers
+## IV. Bottom Spacers
  
  1. Attach the ***Front Bottom Spacer*** to the plastic ***Buffer Plate*** of the car's suspension subassembly using two *M4x25 Countersunk* and two *M4x25 Socket Head* screws as shown in the picture. Make sure to leave a gap slightly larger than 3mm between the socket head screws and the spacer to allow the key slots of the PC to slide in easily.
 
@@ -82,7 +99,7 @@ This page contains the instructions for mounting all the previously assembled su
     ![s0102](img/asm/car/stp/S0304.svg)
 
 
-## IV. PC and Motor Driver
+## V. PC and Motor Driver
  
  1. Attach the ***Motor Driver*** subassembly by inserting and sliding the top screws into the corresponding key slots at the bottom of the ***PC***. Once in place, the screws can be tightened for a more secure attachment during normal operation.
 
@@ -93,7 +110,7 @@ This page contains the instructions for mounting all the previously assembled su
     ![s0102](img/asm/car/stp/S0402.svg)
 
 
-## V. Front Sensor Array
+## VI. Front Sensor Array
  
  1. Attach the ***Front Sensor Array*** subassembly by sliding the vertical posts into the corresponding bosses from the ***Front Sensor Bracket***.
 
@@ -112,7 +129,7 @@ This page contains the instructions for mounting all the previously assembled su
     ![s0102](img/asm/car/stp/S0504.svg)
 
 
-## VI. Rear Sensor Array
+## VII. Rear Sensor Array
  
  1. Attach the ***Rear Sensor Array*** subassembly by sliding the vertical posts into the corresponding bosses from the ***Rear Sensor Bracket***.
 
