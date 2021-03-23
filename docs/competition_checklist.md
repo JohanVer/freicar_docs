@@ -1,4 +1,4 @@
- # FreiCAR Competition Checklist
+# FreiCAR Competition Checklist
 
 1. Upload your code to a private git repository.
 2. Read the code_testing section.
