@@ -20,11 +20,11 @@ This subassembly contains the main, forward-facing sensors used by the car for o
 
 |                                                  | Description                | Qty |   |                                                  | Description                | Qty |
 |:------------------------------------------------:|:---------------------------|:---:|---|:------------------------------------------------:|:---------------------------|:---:|
-|![scr_cbr_m2.5x16](img/hw/scr/cbr/m2.5x16.svg)    |M2.5x16 CBR Screws          | 2   |   |![nut_hex____m3](img/hw/nut/hex/m3.svg)           |M3 Nuts                     | 4   |
-|![scr_cbr_m3x06](img/hw/scr/csk/m3x08.svg)        |M3x8 CSK Screws             | 16  |   |![nut_loc____m3](img/hw/nut/loc/m3.svg)           |M3 Nyloc Nuts               | 2   |
-|![scr_csk_m3x10](img/hw/scr/csk/m3x10.svg)        |M3x10 CSK Screws            | 2   |   |![nut_hex____m4](img/hw/nut/hex/m4.svg)           |M4 Nuts                     | 4   |
-|![scr_csk_m3x08](img/hw/scr/csk/m3x12.svg)        |M3x12 CSK Screws            | 2   |   |![nut_loc____m4](img/hw/nut/loc/m4.svg)           |M4 Nuts                     | 4   |
-|![scr_csk_m4x12](img/hw/scr/cbr/m4x10.svg)        |M4x10 CBR Screws            | 21  |   |![nut_tee____m4](img/hw/nut/tee/m4.svg)           |M4x6 T-Nuts                 | 8   |
+|![scr_cbr_m2.5x16](img/hw/scr/cbr/m2.5x16.svg)    |M2.5x16 CBR Screws          | 2   |   |![nut_loc____m3](img/hw/nut/loc/m3.svg)           |M3 Nyloc Nuts               | 2   |
+|![scr_cbr_m3x06](img/hw/scr/csk/m3x08.svg)        |M3x8 CSK Screws             | 16  |   |![nut_hex____m4](img/hw/nut/hex/m4.svg)           |M4 Nuts                     | 4   |
+|![scr_csk_m3x12](img/hw/scr/csk/m3x10.svg)        |M3x12 CSK Screws            | 2   |   |![nut_loc____m4](img/hw/nut/loc/m4.svg)           |M4 Nyloc Nuts                     | 4   |
+|![scr_csk_m3x16](img/hw/scr/csk/m3x12.svg)        |M3x16 CSK Screws            | 2   |   |![nut_tee____m4](img/hw/nut/tee/m4.svg)           |M4x6 T-Nuts                 | 8   |
+|![scr_csk_m4x12](img/hw/scr/cbr/m4x10.svg)        |M4x10 CBR Screws            | 17  |   |                                                  |                            |     |
 |![scr_cbr__1/2"](img/hw/scr/cbr/in0.25-20x0.5.svg)|1/4"-20x1/2" CBR Screws     | 3   |   |                                                  |                            |     |
 
 
@@ -211,7 +211,7 @@ This subassembly contains the main, forward-facing sensors used by the car for o
 |  **1** |Front Sensor Bracket             | 1   |
 |  **2** |Body Columns                     | 2   |
 |  **3** |M2.5x16 CBR Screws               | 2   |
-|  **4** |M3x10 CSK Screws                 | 2   |
+|  **4** |M3x16 CSK Screws                 | 2   |
 |  **5** |M3 Nyloc Nuts                    | 2   |
 |  **6** |M4 Nyloc Nuts                    | 2   |
 
@@ -233,7 +233,7 @@ This subassembly contains the main, forward-facing sensors used by the car for o
 |  **3** |Left Brace                       | 1   |     | **15** |HTC Vive Tracker                  | 1   |
 |  **4** |Right Brace                      | 1   |     | **16** |M3x8 CSK Screws                   | 16  |
 |  **5** |Brace Nut                        | 2   |     | **17** |M3x12 CSK Screws                  | 2   |
-|  **6** |Hand Knob                        | 2   |     | **18** |M4x10 CBR Screws                  | 21  |
+|  **6** |Hand Knob                        | 2   |     | **18** |M4x10 CBR Screws                  | 17  |
 |  **7** |M3x270 Threaded Rod              | 2   |     | **19** |1/4"-20x1/2" CBR Screws           | 3   |
 |  **8** |Sick Bracket                     | 1   |     | **20** |M3 Nuts                           | 4   |
 |  **9** |Sick TIM55x Ranging Laser Scanner| 1   |     | **21** |M4 Nuts                           | 4   |
