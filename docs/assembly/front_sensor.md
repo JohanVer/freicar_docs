@@ -18,19 +18,19 @@ This subassembly contains the main, forward-facing sensors used by the car for o
 
 #### Hardware
 
-|                                                  | Description                | Qty | 
-|:------------------------------------------------:|:---------------------------|:---:|
-|![scr_cbr_m2.5x16](img/hw/scr/cbr/m2.5x16.svg)    |M2.5x16 CBR Screws          | 2   |
-|![scr_cbr_m3x06](img/hw/scr/csk/m3x08.svg)        |M3x8 CSK Screws             | 16  |
-|![scr_csk_m3x10](img/hw/scr/csk/m3x10.svg)        |M3x10 CSK Screws            | 2   |
-|![scr_csk_m3x08](img/hw/scr/csk/m3x12.svg)        |M3x12 CSK Screws            | 2   |
-|![scr_csk_m4x12](img/hw/scr/cbr/m4x10.svg)        |M4x10 CBR Screws            | 21  |
-|![scr_cbr__1/2"](img/hw/scr/cbr/in0.25-20x0.5.svg)|1/4"-20x1/2" CBR Screws     | 3   |
-|![nut_hex____m3](img/hw/nut/hex/m3.svg)           |M3 Nuts                     | 4   |
-|![nut_loc____m3](img/hw/nut/loc/m3.svg)           |M3 Nyloc Nuts               | 2   |
-|![nut_hex____m4](img/hw/nut/hex/m4.svg)           |M4 Nuts                     | 4   |
-|![nut_loc____m4](img/hw/nut/loc/m4.svg)           |M4 Nuts                     | 4   |
-|![nut_tee____m4](img/hw/nut/tee/m4.svg)           |M4x6 T-Nuts                 | 8   |
+|                                                  | Description                | Qty |   |                                                  | Description                | Qty |
+|:------------------------------------------------:|:---------------------------|:---:|---|:------------------------------------------------:|:---------------------------|:---:|
+|![scr_cbr_m2.5x16](img/hw/scr/cbr/m2.5x16.svg)    |M2.5x16 CBR Screws          | 2   |   |![nut_hex____m3](img/hw/nut/hex/m3.svg)           |M3 Nuts                     | 4   |
+|![scr_cbr_m3x06](img/hw/scr/csk/m3x08.svg)        |M3x8 CSK Screws             | 16  |   |![nut_loc____m3](img/hw/nut/loc/m3.svg)           |M3 Nyloc Nuts               | 2   |
+|![scr_csk_m3x10](img/hw/scr/csk/m3x10.svg)        |M3x10 CSK Screws            | 2   |   |![nut_hex____m4](img/hw/nut/hex/m4.svg)           |M4 Nuts                     | 4   |
+|![scr_csk_m3x08](img/hw/scr/csk/m3x12.svg)        |M3x12 CSK Screws            | 2   |   |![nut_loc____m4](img/hw/nut/loc/m4.svg)           |M4 Nuts                     | 4   |
+|![scr_csk_m4x12](img/hw/scr/cbr/m4x10.svg)        |M4x10 CBR Screws            | 21  |   |![nut_tee____m4](img/hw/nut/tee/m4.svg)           |M4x6 T-Nuts                 | 8   |
+|![scr_cbr__1/2"](img/hw/scr/cbr/in0.25-20x0.5.svg)|1/4"-20x1/2" CBR Screws     | 3   |   |                                                  |                            |     |
+
+
+
+
+
 
 #### Custom Parts
 
