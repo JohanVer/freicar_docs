@@ -1,7 +1,7 @@
-#Simulator
+# Simulator
 Our simulator is capable of simulating all sensor of the physical FreiCar. The simulator comes with the docker image and thus does need to be installed manually.
  
-##Starting the Simulator
+## Starting the Simulator
 The simulator together with some necessary ROS-nodes can be started by running:
 
 ```roslaunch freicar_launch local_comp_launch.launch```
@@ -9,7 +9,7 @@ The simulator together with some necessary ROS-nodes can be started by running:
 The simulator needs always to run if you want to start your own programs. Your ROS-nodes must be started in a separate launch file.
 In this launch file also the map is specified. See down below how to change it.
 
-##Updating the Simulator
+## Updating the Simulator
 We might update the simulator from time to time. When a new simulator version comes out you can upgrade the simulator by running ```update_simulator.bash``` from the docker directory.
 
 ## Maps

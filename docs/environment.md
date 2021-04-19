@@ -1,11 +1,11 @@
-#FreiCAR Environment
+# FreiCAR Environment
 
 Complex robots always involve large software stacks and setup procedures. 
 
 To ease the process as much as possible we provide a complete docker container that includes everything you need, such as the simulator, libraries and IDEs.
 
-#Docker
-##Setup
+# Docker
+## Setup
 To setup everything on your pc you will need:
 
 - A recent pc with a Nvidia GPU (better than GTX 1050 ti)
@@ -25,7 +25,7 @@ In the following we describe the individual steps to make your pc ready!
 - Restart your computer (otherwise the docker deamon might not be started)
 - You are all set! :) 
 
-##Usage
+## Usage
 Our scripts adds a few aliases to your bashrc. So after building everything close every open terminal so that on the next start everything gets sourced correctly.
 
 Our docker container will provide most of the tools you need in a single container.
@@ -39,7 +39,7 @@ Therefore type `fcc` (freicar container)in a new terminal. It will ask you for t
 The directory freicar_deps and freicar_ws are shared with your host. So every data that you create inside the docker within this directory can be read by the host, or vice versa. Additionally only the data in these folders are persistent if you restart the docker environment. 
 
 
-##Persistent Changes to Docker Container
+## Persistent Changes to Docker Container
 Sometimes it becomes necessary to install additional libraries or packages if your program needs them. While you can install them in the docker container with `sudo apt-get install`, the changes would vanish as soon you stop the docker.
 
 However you can make these changes persistent by executing the script `commit_changes.bash` before closing the docker container. This will keep all changes you made and the next time you start up the container (with `fcc`) you will have changed environment.
