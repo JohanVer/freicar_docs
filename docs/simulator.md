@@ -1,8 +1,23 @@
-# Simulator
+#Simulator
+Our simulator is capable of simulating all sensor of the physical FreiCar. The simulator comes with the docker image and thus does need to be installed manually.
+ 
+##Starting the Simulator
+The simulator together with some necessary ROS-nodes can be started by running:
+
+```roslaunch freicar_launch local_comp_launch.launch```
+
+The simulator needs always to run if you want to start your own programs. Your ROS-nodes must be started in a separate launch file.
+In this launch file also the map is specified. See down below how to change it.
+
+##Updating the Simulator
+We might update the simulator from time to time. When a new simulator version comes out you can upgrade the simulator by running ```update_simulator.bash``` from the docker directory.
 
 ## Maps
+We have prepared various urban and race maps that can be loaded into the simulator. 
 
-Preview | Simulator Map Name (freicar_settings) | ROS Map Name (sim_launch.launch)
+In order to change the map open the file ```local_comp_launch.launch``` from the package ```freicar_launch``` and change the ```map_path``` to the corresponding map-name in the table below.   
+
+Preview | Simulator Map Name (freicar_settings) | ROS Map Name (local_comp_launch.launch)
 --- | --- | ---
 ![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar1.png "") | freicar1 | freicar_1.aismap
 ![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar2.png "") | freicar2 | freicar_2.aismap
@@ -39,4 +54,3 @@ Example to set a new pose (in case the car is called "freicar_1"):
 Example how to reset the cars pose to the spawn pose (in case the car is called "freicar_1"):
 
 ``` rosservice call /freicar_1/reset_position true ```
-
