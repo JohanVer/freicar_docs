@@ -2,10 +2,11 @@ site_name: FreiCar Docs
 nav:
     - Home: index.md
     - Environment: environment.md
+      - Simulator: simulator.md
+      - First Steps: first_steps.md
     - FreiCar Overview: nodes/freicar_overview.md
     - FreiCar Map: nodes/freicar_map.md
     - FreiCar Agent: nodes/freicar_agent.md
-    - Simulator: simulator.md
     - Competition Rules: competition_rules.md
     - Competition Checklist: competition_checklist.md
     - Presentation Rules: presentation_rules.md
