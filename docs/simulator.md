@@ -68,3 +68,10 @@ Example how to reset the cars pose to the spawn pose (in case the car is called 
 In order to test your system with other dynamic traffic participants you can spawn multiple other scripted cars that obey the traffic rules.
 
 To do so, run: ```rosrun freicar_executables freicar_carla_agent_node 5```. This will spawn 5 other dynamic cars. Note that the simulation has to run before.
+
+## Using a Gamepad
+
+If you like you can use a gamepad to control your car. Just type: ```roslaunch freicar_launch start_joystick.launch name:=freicar_anyname``` where "freicar_anyname" is your car-name.
+We support currently xbox controllers but you could change the "FreiCar Joy" node to your needs (see [Freicar Overview](https://freicar-docs.readthedocs.io/nodes/freicar_overview/))
+
+![angle_definition](https://github.com/JohanVer/freicar_docs/raw/master/images/xbox_joy_buttons.png "")  

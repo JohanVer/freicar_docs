@@ -24,4 +24,4 @@ You are allowed to use any code from the freicar_base submodule. Read the sectio
 
 Always make your own **private** repository for your software. No changes to the submodules ``` freicar_base```, ```freicar_exercises``` or ```freicar_executables``` are allowed.
  
- If you want to use code from these submodules you are allowed to copy these nodes, rename them and push them in your repository. 
+If you want to use code from these submodules you are allowed to copy these nodes, improve them, rename them and push them in your repository. 
