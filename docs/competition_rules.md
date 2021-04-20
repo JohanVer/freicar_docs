@@ -61,7 +61,7 @@ This high-level command can be:
  - `stop`
  - `start`
  
-If i.e. a `right` command is send to your car your car is supposed to take a right turn when entering the immmediately upcoming junction. After the junction is exited, this command can be considered stale and does no longer have to be considered. The same goes for `left` and `straight`. The commands `stop` and `start` should be followed at all times and should make the vehicle stop and start in a safe manner.
+If i.e. a `right` command is send to your car your car is supposed to take a right turn when entering the immediately upcoming junction. After the junction is exited, this command can be considered stale and does no longer have to be considered. The same goes for `left` and `straight`. The commands `stop` and `start` should be followed at all times and should make the vehicle stop and start in a safe manner.
 
 The high-level command is represented as `ros-msg` (`freicar_common/FreiCarControl`) with the types:
 
@@ -73,7 +73,8 @@ You can publish all commands using the scripts in: ```freicar_ws/src/freicar_bas
 
 #### System Setup and Startup
 
-In your repository root directory, we expect a `setup_env.sh` bash script that downloads/compiles any needed libraries, sets system and environment variables, and compiles your ROS nodes. Next, we expect a  `start_system.sh` bash script which calls your roslaunch file starting all your system components. No further interaction should be needed from our side. This includes starting additional roslaunch files, changes in directory or setting of environment variables, etc.
+In your repository root directory, we expect a `setup_env.sh` bash script that downloads/compiles any needed libraries, sets system and environment variables, and compiles your ROS nodes. Next, we expect a  `start_system.sh` bash script in the root of your submitted repository which calls your roslaunch file starting all your system components. No further interaction should be needed from our side. This includes starting additional roslaunch files, changes in directory or setting of environment variables, etc.
+Your submitted repository will be placed in `/home/freicar/freicar_ws/src` with all other submodules remaining, so make sure that there aren't any conflicts.
 
 Any deviation from this code convention will reflect in the final grade. 
 
