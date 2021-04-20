@@ -8,5 +8,3 @@ Note that everything (code, launch command, ...) MUST be committed by March 25, 
 5. Make sure that you don't have any conflicts with the launch file that will run on our local machine  ```local_comp_launch.launch```
 6. Make sure that you have a microphone and camera connected to your PC.
 7. In your demonstration, one team member should provide some basic commentary on what the car is doing (not like a sports commentary but just to give people from outside your own team an idea of what the car is doing or trying to do)
-
-

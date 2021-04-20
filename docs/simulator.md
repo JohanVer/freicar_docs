@@ -17,20 +17,29 @@ We have prepared various urban and race maps that can be loaded into the simulat
 
 In order to change the map open the file ```local_comp_launch.launch``` from the package ```freicar_launch``` and change the ```map_path``` to the corresponding map-name in the table below.   
 
-Preview | Simulator Map Name (freicar_settings) | ROS Map Name (local_comp_launch.launch)
---- | --- | ---
-![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar1.png "") | freicar1 | freicar_1.aismap
-![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar2.png "") | freicar2 | freicar_2.aismap
-![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar_race_1.png "") | freicar_race_1 | freicar_race_1.aismap
-![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar_race_2.png "") | freicar_race_2 | freicar_race_2.aismap
+Preview | ROS Map Name (local_comp_launch.launch)
+--- | ---
+![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar1.png "") | freicar_1.aismap
+![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar2.png "") | freicar_2.aismap
+![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar_race_1.png "") | freicar_race_1.aismap
+![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar_race_2.png "") | freicar_race_2.aismap
+
+## Competition Mode
+By default the simulator provides ground-truth localization (a tf-transform from /map to /car_name) and ground-truth odometry. However in the final competition this information won't be available. 
+In the ```local_comp_launch.launch``` a variable named ```comp_mode``` is defined (default: false). If ```comp_mode``` is set to true the ground-truth localization is not published anymore and the odometry will be noisy.
+
+In the final competition ```comp_mode``` is set to true.  
+
 
 ## Spawn Poses
 There are two ways to define the initial spawn pose of the car:
+
 1. The freicar_carla_proxy node provides the parameters ```spawn/x```, ```spawn/y```, ```spawn/z``` and ```spawn/heading``` that can be used to setup the initial pose.
  Note that if you use the ```sim_base.launch``` these parameters are getting overwritten by the values defined in this launch file.
  
 2. Additionally freicar_carla_proxy provides the parameter ```use_yaml_spawn```. Note again that if you use ```sim_base.launch``` the value gets overwritten by the file.
  If ```use_yaml_spawn``` is set to true the spawn pose will be read from the files located in ``` freicar_base/freicar_launch/spawn_positions ``` depending on the map that is defined by the global parameter ```map_path``` (set in ```sim_base.launch```).
+ If the spawn position is used from the yaml file also the ros-parameter ``` spawn/x ``` etc will be set accordingly.
 
 The heading angle is in degree and defined as follows:
 
@@ -40,8 +49,8 @@ The heading angle is in degree and defined as follows:
 ## Reset/Set Car Positions Manually
 
 After spawning a car two ROS services are created (by freicar_carla_proxy).
-- ```/FREICAR_NAME/set_position``` (e.g ```/freicar_1/set_position```)
-- ```/FREICAR_NAME/reset_position``` (e.g ```/freicar_1/reset_position```)
+ - ```/FREICAR_NAME/set_position``` (e.g ```/freicar_1/set_position```)
+ - ```/FREICAR_NAME/reset_position``` (e.g ```/freicar_1/reset_position```)
 
 These services can be used to either reset the cars position to the spawn pose or to set a custom pose. In both cases the car will be beamed to the changed pose.
 
@@ -54,3 +63,8 @@ Example to set a new pose (in case the car is called "freicar_1"):
 Example how to reset the cars pose to the spawn pose (in case the car is called "freicar_1"):
 
 ``` rosservice call /freicar_1/reset_position true ```
+
+## Spawning Dynamic Cars
+In order to test your system with other dynamic traffic participants you can spawn multiple other scripted cars that obey the traffic rules.
+
+To do so, run: ```rosrun freicar_executables freicar_carla_agent_node 5```. This will spawn 5 other dynamic cars. Note that the simulation has to run before.

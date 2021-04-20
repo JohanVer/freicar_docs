@@ -2,8 +2,6 @@
 
 *UNDER CONSTRUCTION*
 
-The testing Q&A will take place on **March 17, 2 pm.**
-
 ### General:
 
 You should provide one of the two options (first one preferred)
