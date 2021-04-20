@@ -1,4 +1,4 @@
- # FreiCAR Competition Rules
+# FreiCAR Competition Rules
 
 ## Competition Tasks:
 Overall you have to solve the following tasks:
