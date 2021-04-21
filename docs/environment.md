@@ -29,6 +29,7 @@ In the following we describe the individual steps to make your pc ready!
 Within the FreiCar container a ROS Workspace `freicar_ws`  will already be setup. In the workspace three git submodules are placed that contain several ROS nodes `freicar_base`, `freicar_executables` and `freicar_exercises`.
 
 The `freicar_base` submodule contains many ROS modules that you need during the course. All modules in `freicar_executables` are closed-source. The module `freicar_exercises` will contain all template code that is necessary for the exercises. 
+
 NOTE: If there are updates to any submodules in the `freicar_docker` repository (e.g if there is new exercise code available) you need to pull the `freicar_docker` repository using : `git submodule update --init --recursive` . 
 
 ## Usage

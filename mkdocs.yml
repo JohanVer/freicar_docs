@@ -10,5 +10,5 @@ nav:
     - Competition Rules: competition_rules.md
     #- Competition Checklist: competition_checklist.md
     - Presentation Rules: presentation_rules.md
-    - Code Testing: code_testing.md    
+    - Code Style: code_style.md
 theme: readthedocs

@@ -32,13 +32,15 @@ We also provide a depth image (also as [ROS image message](https://docs.ros.org/
 
 ![depth_sensor](https://github.com/JohanVer/freicar_docs/raw/master/images/depth_sensor.png "")
 
-### LIDAR
+### Lidar
 We simulate the Sick lidar on the topic `/AnyCarName/sim/lidar` as  [PointCloud2 message](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html). After receiving the message in one of your nodes we recommend to [convert the PointCloud2 message to a pcl](https://answers.ros.org/question/136916/conversion-from-sensor_msgspointcloud2-to-pclpointcloudt/) format for convenience.
 
 ## Maps
 We have prepared various urban and race maps that can be loaded into the simulator. 
 
-In order to change the map open the file ```local_comp_launch.launch``` from the package ```freicar_launch``` and change the ```map_path``` to the corresponding map-name in the table below.   
+In order to change the map open the file ```local_comp_launch.launch``` from the package ```freicar_launch``` and change the ```map_name``` to the corresponding map-name in the table below.
+
+You can also provide the map_name as command-line argument like: ``` roslaunch freicar_launch local_comp_launch.launch map_name:=freicar_race_1.aismap ```
 
 Preview | ROS Map Name (local_comp_launch.launch)
 --- | ---
@@ -49,7 +51,9 @@ Preview | ROS Map Name (local_comp_launch.launch)
 
 ## Competition Mode
 By default the simulator provides ground-truth localization (a tf-transform from /map to /car_name) and ground-truth odometry. However in the final competition this information won't be available. 
-In the ```local_comp_launch.launch``` a variable named ```comp_mode``` is defined (default: false). If ```comp_mode``` is set to true the ground-truth localization is not published anymore and the odometry will be noisy.
+In the ```local_comp_launch.launch``` a argument named ```comp_mode``` is defined (default: false). If ```comp_mode``` is set to true the ground-truth localization is not published anymore and the odometry will be noisy.
+
+Like the map-name you can set the comp_mode as a command line argument like: ``` roslaunch freicar_launch local_comp_launch.launch map_name:=freicar_1.aismap comp_mode:=true```
 
 In the final competition ```comp_mode``` is set to true.  
 

@@ -70,6 +70,7 @@ The high-level command is represented as `ros-msg` (`freicar_common/FreiCarContr
 
 You can publish all commands using the scripts in: ```freicar_ws/src/freicar_base/freicar_launch/bash/commands``` .
 
+Initially, after starting all the nodes, your car should be stopped.
 
 #### System Setup and Startup
 
