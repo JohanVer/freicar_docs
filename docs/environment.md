@@ -9,6 +9,7 @@ To setup everything on your pc you will need:
 
 - A recent pc with a Nvidia GPU (better than GTX 1050 ti)
 - Ubuntu >=18.04
+- 50GB free space
 
 In the following we describe the individual steps to make your pc ready!
 
@@ -16,7 +17,7 @@ In the following we describe the individual steps to make your pc ready!
     - `sudo apt-get purge nvidia*` get rid of your old driver
     - `sudo apt-get install nvidia-driver-460`
     - restart your pc
-- Clone the following repo to your pc (the hdd should have 40 gb free)
+- Clone the following repo to your pc (the hdd should have 50 gb free)
     - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
 - enter the cloned repo : `cd freicar_docker`
 - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
