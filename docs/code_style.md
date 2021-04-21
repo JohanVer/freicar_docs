@@ -26,7 +26,7 @@ Overall on our competition server the following commands are executed:
 6. `./setup_env.sh`
 7. `source ~/.bashrc`
 8. `roscd && cd .. && catkin build`
-8. `./start.sh`
+9. `./start.sh`
 
 During the complete process no further interaction will be possible.
 
