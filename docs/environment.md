@@ -4,8 +4,7 @@ Complex robots always involve large software stacks and setup procedures.
 
 To ease the process as much as possible we provide a complete docker container that includes everything you need, such as the simulator, libraries and IDEs.
 
-# Docker
-## Setup
+# Installation
 To setup everything on your pc you will need:
 
 - A recent pc with a Nvidia GPU (better than GTX 1050 ti)
