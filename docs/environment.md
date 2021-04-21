@@ -21,8 +21,8 @@ In the following we describe the individual steps to make your pc ready!
     - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
 - enter the cloned repo : `cd freicar_docker`
 - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
-- build the entire environment and download the simulator (this will take a while, >1h): `./setup.bash` (You will be asked for your sudo password at some point in order to install the docker image to your pc)
 - Restart your computer (otherwise the docker deamon might not be started)
+- build the entire environment and download the simulator (this will take a while, >1h): `./setup.bash` (You will be asked for your sudo password at some point in order to install the docker image to your pc)
 - You are all set! :) 
 
 ## Structure of ROS Workspace
