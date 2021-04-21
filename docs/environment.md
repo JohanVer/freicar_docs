@@ -13,14 +13,14 @@ To setup everything on your pc you will need:
 In the following we describe the individual steps to make your pc ready!
 
 - Install the latest nvidia driver on your pc. We recommend to use at least version 450 (the newer the better).
-   - `sudo apt-get purge nvidia*` get rid of your old driver
-   - `sudo apt-get install nvidia-driver-460`
-   - restart your pc
+    - `sudo apt-get purge nvidia*` get rid of your old driver
+    - `sudo apt-get install nvidia-driver-460`
+    - restart your pc
 - Clone the following repo to your pc (the hdd should have 40 gb free)
-   - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
-   - enter the cloned repo : `cd freicar_docker`
-   - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
-   - build the entire environment and download the simulator (this will take a while, >1h): `./setup.bash`
+    - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
+    - enter the cloned repo : `cd freicar_docker`
+    - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
+    - build the entire environment and download the simulator (this will take a while, >1h): `./setup.bash`
 - Restart your computer (otherwise the docker deamon might not be started)
 - You are all set! :) 
 
