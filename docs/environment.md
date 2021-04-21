@@ -50,7 +50,7 @@ Sometimes it becomes necessary to install additional libraries or packages if yo
 
 However you can make these changes persistent by executing the script `commit_changes.bash` before closing the docker container. This will keep all changes you made and the next time you start up the container (with `fcc`) you will have changed environment.
 
-NOTE: Always keep track what you changed in the container as you will need a bash script for the final competition that install all required additional libraries on a fresh docker. (See Code Testing section )
+NOTE: Always keep track what you changed in the container as you will need a bash script for the final competition that install all required additional libraries on a fresh docker. (See [Code Style](https://freicar-docs.readthedocs.io/code_style/) section )
 
 ## IDEs
 In the container there are two IDEs pre-installed: pycharm and clion. The first is for developing in python and the latter in C++.

@@ -73,9 +73,6 @@ You can publish all commands using the scripts in: ```freicar_ws/src/freicar_bas
 Initially, after starting all the nodes, your car should be stopped.
 
 #### System Setup and Startup
-
-In your repository root directory, we expect a `setup_env.sh` bash script that downloads/compiles any needed libraries, sets system and environment variables, and compiles your ROS nodes. Next, we expect a  `start_system.sh` bash script in the root of your submitted repository which calls your roslaunch file starting all your system components. No further interaction should be needed from our side. This includes starting additional roslaunch files, changes in directory or setting of environment variables, etc.
-Your submitted repository will be placed in `/home/freicar/freicar_ws/src` with all other submodules remaining, so make sure that there aren't any conflicts.
-
+It is very important that you follow and consider the rules mentioned in the [Code Style](https://freicar-docs.readthedocs.io/code_style/) section. Otherwise your program may not run in the final competition.
 Any deviation from this code convention will reflect in the final grade. 
 
