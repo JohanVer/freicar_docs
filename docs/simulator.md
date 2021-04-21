@@ -1,5 +1,5 @@
 # Simulator
-Our simulator is capable of simulating all sensor of the physical FreiCar. The simulator comes with the docker image and thus does need to be installed manually.
+Our simulator is capable of simulating all sensors of the physical FreiCar. The simulator comes with the docker image and thus does need to be installed manually.
  
 ## Starting the Simulator
 The simulator together with some necessary ROS-nodes can be started by running:
@@ -11,6 +11,29 @@ In this launch file also the map is specified. See down below how to change it.
 
 ## Updating the Simulator
 We might update the simulator from time to time. When a new simulator version comes out you can upgrade the simulator by running ```update_simulator.bash``` from the docker directory.
+
+## Simulated Sensors/Actuators
+### Throttle, Steering, Brake
+All cars can be controlled over throttle, steering and brake. The corresponding ROS-message can be looked up [here](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/raiscar_msgs/msg/ControlCommand.msg) and can be sent to `/AnyCarName/control`.
+
+### Localization
+If the competition mode is turned off (see explanation below), a ground-truth localization will be provided as tf-transform from `/map -> /AnyCarName/handle` (center of the car). You can use a [ROS tf-listener](http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%2B%29) to query this transform in your code.  
+
+### Odometry
+The odometry of the car is provided on the topic `/AnyCarName/odometry` using the  [odometry message](http://docs.ros.org/en/melodic/api/nav_msgs/html/msg/Odometry.html) message type.
+
+### RGB Camera
+The RGB image of the front facing camera is published as [ROS image message](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html) on the topic: `/AnyCarName/sim/camera/rgb/front/image`.
+
+![rgb_sensor](https://github.com/JohanVer/freicar_docs/raw/master/images/rgb_sensor.png "") 
+
+### Depth Camera
+We also provide a depth image (also as [ROS image message](https://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/Image.html)) ,which is aligning with the RGB camera, on the topic : `/AnyCarName/sim/camera/depth/front/image_float`. The depth image is encoded as single channel floating point image and the unit is meters.
+
+![depth_sensor](https://github.com/JohanVer/freicar_docs/raw/master/images/depth_sensor.png "")
+
+### LIDAR
+We simulate the Sick lidar on the topic `/AnyCarName/sim/lidar` as  [PointCloud2 message](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html). After receiving the message in one of your nodes we recommend to [convert the PointCloud2 message to a pcl](https://answers.ros.org/question/136916/conversion-from-sensor_msgspointcloud2-to-pclpointcloudt/) format for convenience.
 
 ## Maps
 We have prepared various urban and race maps that can be loaded into the simulator. 
