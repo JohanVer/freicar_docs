@@ -18,9 +18,9 @@ In the following we describe the individual steps to make your pc ready!
     - restart your pc
 - Clone the following repo to your pc (the hdd should have 40 gb free)
     - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
-    - enter the cloned repo : `cd freicar_docker`
-    - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
-    - build the entire environment and download the simulator (this will take a while, >1h): `./setup.bash`
+- enter the cloned repo : `cd freicar_docker`
+- install docker-ce and nvidia-docker with our script: `./install_docker.bash`
+- build the entire environment and download the simulator (this will take a while, >1h): `./setup.bash`
 - Restart your computer (otherwise the docker deamon might not be started)
 - You are all set! :) 
 
