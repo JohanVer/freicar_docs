@@ -8,7 +8,7 @@ To ease the process as much as possible we provide a complete docker container t
 To setup everything on your pc you will need:
 
 - A recent pc with a Nvidia GPU (better than GTX 1050 ti)
-- Ubuntu
+- Ubuntu >=18.04
 
 In the following we describe the individual steps to make your pc ready!
 
