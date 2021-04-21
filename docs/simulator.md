@@ -57,6 +57,8 @@ Like the map-name you can set the comp_mode as a command line argument like: ```
 
 In the final competition ```comp_mode``` is set to true.  
 
+Note: Even though if `comp_mode` is turned on other dynamic agents (See section about spawning dynamic cars down below) will publish ground-truth localization information on the topic `/car_localization` . It is **NOT** allowed to use this topic during the competition. 
+
 
 ## Spawn Poses
 There are two ways to define the initial spawn pose of the car:
