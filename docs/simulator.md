@@ -51,7 +51,8 @@ Preview | ROS Map Name (local_comp_launch.launch)
 
 ## Competition Mode
 By default the simulator provides ground-truth localization (a tf-transform from /map to /car_name) and ground-truth odometry. However in the final competition this information won't be available. 
-In the ```local_comp_launch.launch``` a argument named ```comp_mode``` is defined (default: false). If ```comp_mode``` is set to true the ground-truth localization is not published anymore and the odometry will be noisy.
+In the ```local_comp_launch.launch``` a argument named ```comp_mode``` is defined (default: false). If ```comp_mode``` is set to true the ground-truth localization is not published anymore.
+The simulated odometry measurements are always overlaid with gaussian noise, no matter how the  ```comp_mode``` is set.
 
 Like the map-name you can set the comp_mode as a command line argument like: ``` roslaunch freicar_launch local_comp_launch.launch map_name:=freicar_1.aismap comp_mode:=true```
 
