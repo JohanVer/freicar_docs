@@ -1,20 +1,26 @@
 # FreiCAR Competition Rules
 
-## Competition Tasks:
+## Precompetition
+Two to three weeks before the main competition a pre-competition is carried out. This pre-competition serves as an intermediate test for the main-competition and will cover the following tasks:
+1. Code-Style: All submissions for the pre-competition are required to follow our code-style guide. Therefore, see the corresponding section in our documentation.
+2. Following a circular race track: This task refers to the same task as task 1 in the main competition (see more detailed explanations below). We will conduct this test on a racing-track with low curvature curves.
+3. Taking simple junctions: At least two successful turns have to be executed using the high-level task (See section "Control System" below). For this task the default map "freicar_1" will be used. You have 4 attempts for this task.
+## Main Competition Tasks:
 Overall you have to solve the following tasks:
 
 ### 1. Follow a circular race track (10 P)
 This is the first task you have to solve. A map is given that consists of a single circular route with a 1/1 road scheme (1 ego-lane, 1 opposite-lane).
-Your task is to follow this track at least one round as fast as possible. No high level commands will be sent for this task. There are no other cars and no traffic signs have to be considered. You can try the task 5 times. After the last attempt we continue with the next task.
+Your task is to follow this track at least one round as fast as possible. No high level commands will be sent for this task. There are no other cars and no traffic signs have to be considered.
+You can try the task 5 times. After the last attempt we continue with the next task.
 
 ### 2. Follow a complex road topology (10 P)
-This task involves taking turns at junctions and considering stop signs and right-of-way signs. Your car is controlled by the supervision team with high-level commands (see below) and is supposed to take at least 5 successfull turns in a row. If no high-level command is sent before a junction, an arbitrary direction can be selected.
+This task involves taking turns at junctions and considering stop signs and right-of-way signs. Your car is controlled by the supervision team with high-level commands (see below) and is supposed to take at least 5 successful turns in a row. If no high-level command is sent before a junction, an arbitrary direction can be selected.
 
 For stop-signs stop at the stop-line at least 1 sec, for right-of-way signs continue driving without interruption.
 
 For this task there is no other traffic on the map.
 A turn is successful if the vehicle does not enter a forbidden lane completely (e.g opposite) while turning and the correct junction arm (as sent in the high-level command) is fully entered. 
-You can try the task 5 times (The attempt counter is incremented as soon as an unsuccessful turn is executed). After the last attempt we continue with the next task.
+You can try the task 5 times (The attempt counter is incremented as soon as an unsuccessful turn is executed, or the car drives offroad). After the last attempt we continue with the next task.
 
 ### 3. Consider other vehicles (10 P)
 Similar to task 2, your car will be controlled by the supervision team using high-level commands. However, this time there will be other cars driving on the map.
@@ -34,6 +40,7 @@ In addition to the task rules as stated above, the team of supervisors will judg
 - Driving style: The vehicle should follow a smooth driving trajectory and should drive with reasonable speed (faster than a snail) when it is safe.
 - Behavior w.r.t other vehicles: A safe distance should be kept to all traffic participants at all times. The vehicle should yield at a right-of-way sign if another vehicle is approaching. Crashing into other vehicles is not allowed.
 - Leaving the road or fully entering the opposing lane counts as a failed attempt
+- Quality of the shown visualizations
 
 ### Code Quality
 
