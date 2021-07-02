@@ -5,6 +5,7 @@ Two to three weeks before the main competition a pre-competition is carried out.
 1. Code-Style: All submissions for the pre-competition are required to follow our code-style guide. Therefore, see the corresponding section in our documentation.
 2. Following a circular race track: This task refers to the same task as task 1 in the main competition (see more detailed explanations below). We will conduct this test on a racing-track with low curvature curves.
 3. Taking simple junctions: At least two successful turns have to be executed using the high-level task (See section "Control System" below). For this task the default map "freicar_1" will be used. You have 4 attempts for this task.
+
 ## Main Competition Tasks:
 Overall you have to solve the following tasks:
 
@@ -53,7 +54,7 @@ We also judge the quality of the submitted competition code. Good code could be 
 
 
 - The vehicle will be re-spawned to an initial pose and initial state after each task.
-- No code change is allowed between the attempts. This includes the prohibition to use any task-specific agent profiles (the vehicle cannot know which task it is solving at a given time) changing the foundational logic of your overall approach (i.e. switching a component on or off). But changes to single parameters of a component are fine. Code recompilation between tasks or runs is also not allowed.
+- No code change is allowed between the attempts. This includes the prohibition to use any task-specific agent profiles (the vehicle cannot know which task it is solving at a given time) changing the foundational logic of your overall approach (i.e. switching a component on or off). But changes to single parameters (e.g maximum speed) of a component are fine. Code recompilation between tasks or runs is also not allowed.
 - The final competition map will not be available before the competition. 
 
 Full marks (10 P) for a task will be given if the required number of successful attempts is reached. Partial marks (< 10 P) will be awarded if the required number of successful attempts is not reached. The exact number of points awarded is decided by the supevisor team according to the severeness of the occured failure and the overall situational circumstances.
