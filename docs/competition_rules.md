@@ -2,6 +2,7 @@
 
 ## Precompetition
 Two to three weeks before the main competition a pre-competition is carried out. This pre-competition serves as an intermediate test for the main-competition and will cover the following tasks:
+
 1. Code-Style: All submissions for the pre-competition are required to follow our code-style guide. Therefore, see the corresponding section in our documentation.
 2. Following a circular race track: This task refers to the same task as task 1 in the main competition (see more detailed explanations below). We will conduct this test on a racing-track with low curvature curves.
 3. Taking simple junctions: At least two successful turns have to be executed using the high-level task (See section "Control System" below). For this task the default map "freicar_1" will be used. You have 4 attempts for this task.
