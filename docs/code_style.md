@@ -20,6 +20,7 @@ You should use the start.sh in the freicar_demo_submission repository (link belo
 . An example `agent_description.json` file is available in the freicar_demo_submission repository. It is important to exactly follow the scheme of the template.
 
 As an example if you want to be able to pass for example `targetspeed:=1.0` as an additional parameter to your start.sh file (see point 2), you need to specify this parameter as :
+
  ```
 {
             "parameter": "targetspeed",
@@ -27,6 +28,8 @@ As an example if you want to be able to pass for example `targetspeed:=1.0` as a
             "default": "0.5"
 }
 ```
+
+Note that the actual value is dynamically set to the value that you want during the competition. However, a default value should be specified.
 
 We provide an example repository structure with `start.sh` script in the freicar_demo_submission repository: https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_demo_submission.git. Carefully study this structure and make sure your repository matches.
 
