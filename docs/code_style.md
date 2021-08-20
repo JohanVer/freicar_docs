@@ -17,7 +17,16 @@ You should use the start.sh in the freicar_demo_submission repository (link belo
 3. The simulator will be started by us in a separate terminal (before starting your `start.sh` script). So the ```local_comp_launch.launch``` file must **NOT** be started by your launch files.
 4. All code should be in a directory called `ros_code`. All content in this folder will be copied over automatically in the workspace folder `freicar_ws/src`.
 5. Provide a file called `agent_description.json` that defines the name of your teamname, git-url, and each ros-parameter you may want to change during the competition. These modifiable parameters are passed as additional parameters to your `start.sh` file (see point 2).
-An example `agent_description.json` file is available in the freicar_demo_submission repository. It is important to exactly follow the scheme of the template.
+. An example `agent_description.json` file is available in the freicar_demo_submission repository. It is important to exactly follow the scheme of the template.
+
+As an example if you want to be able to pass for example `targetspeed:=1.0` as an additional parameter to your start.sh file (see point 2), you need to specify this parameter as :
+ ```
+{
+            "parameter": "targetspeed",
+            "type": "float",
+            "default": "0.5"
+}
+```
 
 We provide an example repository structure with `start.sh` script in the freicar_demo_submission repository: https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_demo_submission.git. Carefully study this structure and make sure your repository matches.
 
