@@ -51,5 +51,5 @@ This will automatically start up your built docker and internally starts `start.
 Thorough testing will save valuable time during the competition. 
 
 
-<font size="20">**If your submission does not meet the written requirements you can not participate in the competitions. Thus this will reflect in your final marks.**</font>
+**If your submission does not meet the written requirements you can not participate in the competitions. Thus this will reflect in your final marks.**
 
