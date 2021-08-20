@@ -53,13 +53,12 @@ This process will create a separate docker image where:
 In order to run your code automatically do the following:
 
 1. create a separate terminal, run fcc and then start the simulator with ```roslaunch freicar_launch local_comp_launch.launch```
-2. In a separate terminal (when the simulator is fully started) go to `freicar_docker/deploy_scripts` and run ```./run_repo.sh deploy_teamname anycarname true 0 0 0 spawn_sensors:=true```. (Replace the deploy_teamname with your teamname (same as in the build process), set any car name that you like. Also set use_yaml_spawn, x-spawn, y-spawn and heading-spawn to some values you like. Note that "spawn_sensors:=true" refers to an additional parameter that is passed to the start.sh file).
+2. In a separate terminal (when the simulator is fully started) go to `freicar_docker/deploy_scripts` and run ```./run_repo.sh deploy_teamname anycarname true 0 0 0 spawn_sensors:=true```. (Replace the deploy_teamname with your teamname (same as in the build process), set any car name that you like (**It is important that we can set whatever name here! Do not hardcode any car-names in your code (e.g freicar_1)**). Also set use_yaml_spawn, x-spawn, y-spawn and heading-spawn to some values you like. Note that "spawn_sensors:=true" refers to an additional parameter that is passed to the start.sh file).
 
 This will automatically start up your built docker and internally starts `start.sh`. Your car should be ready to drive now. You can fct in the main docker and send your high-level commands to your car.
 
 ### Hints
 Thorough testing will save valuable time during the competition. 
-
 
 **If your submission does not meet the written requirements you can not participate in the competitions. Thus this will reflect in your final marks.**
 
