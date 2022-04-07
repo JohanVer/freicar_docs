@@ -4,7 +4,7 @@ Always make your own **private** repository for your software. No changes to the
  
 If you want to use code from these submodules you are allowed to copy these nodes, improve them, rename them and push them in your repository. 
 
-Note: Do not forget to rename the nodes in case you copied something over to your private repository. Otherwise there will be **name conflicts** since there would be multiple nodes with the same name.
+Note: Do not forget to rename the nodes in case you copied something over to your private repository. Otherwise, there will be **name conflicts** since there would be multiple nodes with the same name.
 
 # Code Submission 
 For the final submission (or qualification) you must provide a link to your private git repository of your code.
@@ -16,7 +16,7 @@ you can include the specific commands (installing, building, ...) in the `setup_
 You should use the start.sh in the freicar_demo_submission repository (link below) as a starting point to create your script.
 3. The simulator will be started by us in a separate terminal (before starting your `start.sh` script). So the ```local_comp_launch.launch``` file must **NOT** be started by your launch files.
 4. All code should be in a directory called `ros_code`. All content in this folder will be copied over automatically in the workspace folder `freicar_ws/src`.
-5. Provide a file called `agent_description.json` that defines the name of your teamname, git-url, and each ros-parameter you may want to change during the competition. These modifiable parameters are passed as additional parameters to your `start.sh` file (see point 2).
+5. Provide a file called `agent_description.json` that defines the name of your team name, git-url, and each ros-parameter you may want to change during the competition. These modifiable parameters are passed as additional parameters to your `start.sh` file (see point 2).
 . An example `agent_description.json` file is available in the freicar_demo_submission repository. It is important to exactly follow the scheme of the template.
 
 As an example if you want to be able to pass for example `targetspeed:=1.0` as an additional parameter to your start.sh file (see point 2), you need to specify this parameter as :
@@ -41,7 +41,7 @@ In order to build your code automatically go to `freicar_docker/deploy_scripts` 
  
 `./build_repo.sh deploy_teamname https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_demo_submission.git`
   
-(Replace deploy_teamname with your team-name and the repository url with yours. However you can also execute this command directly if you want to build the demo_submission code).
+(Replace deploy_teamname with your team-name and the repository url with yours. However, you can also execute this command directly if you want to build the demo_submission code).
 
 This process will create a separate docker image where:
 
@@ -53,12 +53,12 @@ This process will create a separate docker image where:
 In order to run your code automatically do the following:
 
 1. create a separate terminal, run fcc and then start the simulator with ```roslaunch freicar_launch local_comp_launch.launch```
-2. In a separate terminal (when the simulator is fully started) go to `freicar_docker/deploy_scripts` and run ```./run_repo.sh deploy_teamname anycarname true 0 0 0 spawn_sensors:=true```. (Replace the deploy_teamname with your teamname (same as in the build process), set any car name that you like (**It is important that we can set whatever name here! Do not hardcode any car-names in your code (e.g freicar_1)**). Also set use_yaml_spawn, x-spawn, y-spawn and heading-spawn to some values you like. Note that "spawn_sensors:=true" refers to an additional parameter that is passed to the start.sh file).
+2. In a separate terminal (when the simulator is fully started) go to `freicar_docker/deploy_scripts` and run ```./run_repo.sh deploy_teamname anycarname true 0 0 0 spawn_sensors:=true```. (Replace the deploy_teamname with your teamname (same as in the build process), set any car name that you like (**It is important that we can set whatever name here! Do not hardcode any car-names in your code (e.g. freicar_1)**). Also set use_yaml_spawn, x-spawn, y-spawn and heading-spawn to some values you like. Note that "spawn_sensors:=true" refers to an additional parameter that is passed to the start.sh file).
 
 This will automatically start up your built docker and internally starts `start.sh`. Your car should be ready to drive now. You can fct in the main docker and send your high-level commands to your car.
 
 ### Hints
 Thorough testing will save valuable time during the competition. 
 
-**If your submission does not meet the written requirements you can not participate in the competitions. Thus this will reflect in your final marks.**
+**If your submission does not meet the written requirements you can not participate in the competitions. Thus, this will reflect in your final marks.**
 

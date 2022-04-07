@@ -1,5 +1,5 @@
 # FreiCar Map
-A map typically contains all the relevant information about the environment. Our map has a hierarchichal structure that provides access on multiple levels, depending on the requirement. The current structure can describe:
+A map typically contains all the relevant information about the environment. Our map has a hierarchical structure that provides access on multiple levels, depending on the requirement. The current structure can describe:
 
 * lanes
 * junctions
@@ -8,7 +8,7 @@ A map typically contains all the relevant information about the environment. Our
 
 
 # 1. Compiling the Node
-The following external depenecies are required for compiling the node. They are already installed in your docker image, so no need to do anything extra.
+The following external dependencies are required for compiling the node. They are already installed in your docker image, so no need to do anything extra.
 
 - Eigen
 - nanoflann
@@ -20,9 +20,9 @@ The node also depends on `freicar_common`, a package that defines common message
 `freicar_map` is a typical ROS node.It is already added to your catkin workspace as part of the `freicar_base` repo. You can compile `freicar_map` like any normal ROS  node:
 ```bash
 cd ~/freicar_ws
-catkin bulild freicar_map
+catkin build freicar_map
 ```
-The `CMakeFiles.txt` create two libraries, namely `freicar_globalmap` and `freicar_map_framework`. The first one contains the core map structure, and the second one offers services that operate on top of it, such as planning. We later link against them to get the map functionalities in any arbitrary node.
+The `CMakeFiles.txt` creates two libraries, namely `freicar_globalmap` and `freicar_map_framework`. The first one contains the core map structure, and the second one offers services that operate on top of it, such as planning. We later link against them to get the map functionalities in any arbitrary node.
 
 
 # 2. Using the Map Framework
@@ -104,10 +104,10 @@ Both of these approaches make use of the [Thrift library](https://thrift.apache.
 As mentioned, the map has a hierarchical structure. Almost all of the components inherit from `mapobjects::MapObject`. The base class contains a single member variable, namely its unique ID, or `uuid`. These IDs are generated once by the main map GUI and are persistant across usages. In the following, separate strucutres in the map are introduced.
 
 ## 4.1. LaneGroup
-You can think of a lane group as all of the lanes in a section of a street. It provides access to the underlying lanes by `GetLeftLanes()` and `GetRighttLanes()`. You most likely will not need to use the lane groups directly.
+You can think of a lane group as all of the lanes in a section of a street. It provides access to the underlying lanes by `GetLeftLanes()` and `GetRightLanes()`. You most likely will not need to use the lane groups directly.
 
 ## 4.2. Lane
-Lanes are destingushed by their uuids and are made out of `Point3D` objects: 3D points in space that define the curvature of the lane. Each lane also has a `Lane::Connection` to each of its neighbors. These connections can potentially define:
+Lanes are distinguished by their uuids and are made out of `Point3D` objects: 3D points in space that define the curvature of the lane. Each lane also has a `Lane::Connection` to each of its neighbors. These connections can potentially define:
 
 - `JUNCTION_STRAIGHT`: The next lane in a junction that goes straight
 - `JUNCTION_LEFT`: The next lane in a junction that turns left
@@ -132,7 +132,7 @@ Each lane can have multiple objects. Currently, the following categories are def
 ### LaneMarking & LaneMarkingContainer
 Each lane has two lane markings, on the left and on the right. Lane markings are also `MapObject`s, meaning they have a unique identifier. This way, lanes can share a lane marking, e.g. the left lane marking of a lane can be the right lane marking of another. You can access the LaneMarkingContainer of a lane, which in turn gives you access to the left and the right lane markings.
 
-Each lane marking also a has type that provides abstract but useful information. E.g. one can figure out if it's allowed to overtake another car, by checking if the left lane marking has the type `DASHED`, and not `SOLID`. Although that should most likely be infered by your perception system.
+Each lane marking also a has type that provides abstract but useful information. E.g. one can figure out if it's allowed to overtake another car, by checking if the left lane marking has the type `DASHED`, and not `SOLID`. Although that should most likely be inferred by your perception system.
 ## 4.3. Junctions
 Junctions are objects that are created during the post-processing of the map. Each junction has a unique integer ID to help you distinguish between them. It also has functions such as `GetIncomingLanes()` and `GetOutogingLanes()` that return the uuids of the lanes that lead into that junction, or lead out of it respectively.
 
@@ -159,7 +159,7 @@ Both planners return a `freicar::planning::Plan` object with equidistant nodes. 
 - `float plan_offset`: offset of that point in the plan
 - `mapobjects::Lane::Connection path_description`: description of the relation of a point's lane w.r.t. last lane in the plan.
 
-The plans are compatible, meaing you can append a plan from the lane-star planner directly to a plan generated by lane-follower. You however are responsible for making sure that it makes sense, i.e. your agent can follow that trajectory.
+The plans are compatible, meaning you can append a plan from the lane-star planner directly to a plan generated by lane-follower. You however are responsible for making sure that it makes sense, i.e. your agent can follow that trajectory.
 
 ### LaneStar
 For lane star, you need an object of the `LaneStar` class. You must define the maximum number of a-star steps before it gives up on finding a path. `100` will be more than enough for any application in this course. Afterwards, you can use `GetPlan()` to get a your desired plan. You will need to pass in the following parameters:
@@ -174,7 +174,7 @@ The headings are just there to make sure the correct lane is chosen. E.g. if you
 For consecutive `GetPlan()` calls, you should use `ResetContainers()` first to clean up the search results from the last step.
 
 ### LaneFollower
-This planner starts from a given position and follows along the lanes for a speicifed distance. If it reaches a junction, it'll use the given command to choose a direction to go.
+This planner starts from a given position and follows along the lanes for a specified distance. If it reaches a junction, it'll use the given command to choose a direction to go.
 For this planner, there is no object needed. You can call one of the two overloads of `freicar::planning::lane_follower::GetPlan()`:
 
 - `Point3D current_position`: x, y, z
@@ -196,21 +196,21 @@ This class combines the mentioned planners (+ 2 others) into a single object usi
 Not all functionalities are offered by all strategies. E.g. the lane follower does allow plan extension because it can simply use the old parameters and get a meaningful plan. lane-star on the other hand cannot provide an extension to a plan without randoming a new goal. In that case, the planner returns an empty plan with the `success` flag set to false.
 
 ## 5.2. Logic
-Currently, the logic section only offers right-of-way calculation for junctions. To get whether an agent has right of way, it should send some data about itself and all the other percieved agents at the junction. This data includes:
+Currently, the logic section only offers right-of-way calculation for junctions. To get whether an agent has right of way, it should send some data about itself and all the other perceived agents at the junction. This data includes:
 
 - `std::string a_name`: the name (can be arbitrary)
 - `std::string l_uuid`: the uuid of the lane the agent is on
 - `float l_offset`: its offset along that lane
 - `geometry_msgs::Vector3 velo`: its velocity vector
 - `geometry_msgs::TransformStamped pose`: its 3D pose
-- `Intent intnt`: its intent at the junction: `GOING_STRAIGHT`, `GOING_LEFT`, `GOING_RIGHT` or `NONE` (unknown)
+- `Intent intent`: its intent at the junction: `GOING_STRAIGHT`, `GOING_LEFT`, `GOING_RIGHT` or `NONE` (unknown)
 
 The function `GetRightOfWay` then returns whether the agent has the right of way, whether the junction is already occupied by another agent and the name of the agent that has won the right-of-way (in case of losing RoW, it could be useful).
 
 
 # 6. Sample Code
 
-## 6.1. Intializing the Map
+## 6.1. Initializing the Map
 ```cpp
 #include <freicar_map/thrift_map_proxy.h>
 
@@ -398,11 +398,11 @@ Returns a random `LanePoint3D` in the map :)
 ### `mapobjects::Lane& GetRandomLane()`
 Returns a (reference to a) random lane in the map.
 ### `void PostProcess(float density_m)`
-A function that performs post processing on the base map structure. This process includes converting to a unified coordinate system, densifying the lane points, creating the hashmaps used for lookups, creating the KD tree, etc. This functin **MUST** be called after the map has been loaded or received. If not done, most functions calls will fail.
+A function that performs post-processing on the base map structure. This process includes converting to a unified coordinate system, densifying the lane points, creating the hashmaps used for lookups, creating the KD tree, etc. This function **MUST** be called after the map has been loaded or received. If not done, most functions calls will fail.
 ### `void PrintMap()`
 Debug function that prints all the lanes and their connections.
 ### `void SendAsRVIZMessage(float point_size, float lanemarking_size, std::shared_ptr<ros::NodeHandle> n)`
-This function publishes the map structure in an acceptable format to be visualized using RVIZ. The output that you normally see in RVIZ is a result of this function, called by the `freicar_map` node. Naturally only one nodes needs to visualize the map.
+This function publishes the map structure in an acceptable format to be visualized using RVIZ. The output that you normally see in RVIZ is a result of this function, called by the `freicar_map` node. Naturally only one node needs to visualize the map.
 
 ## 8.2. Map Objects
 This namespace contains the objects that are part of the core map structure.

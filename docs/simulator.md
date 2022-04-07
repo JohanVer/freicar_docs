@@ -33,7 +33,7 @@ We also provide a depth image (also as [ROS image message](https://docs.ros.org/
 ![depth_sensor](https://github.com/JohanVer/freicar_docs/raw/master/images/depth_sensor.png "")
 
 ### Lidar
-We simulate the Sick lidar on the topic `/AnyCarName/sim/lidar` as  [PointCloud2 message](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html). After receiving the message in one of your nodes we recommend to [convert the PointCloud2 message to a pcl](https://answers.ros.org/question/136916/conversion-from-sensor_msgspointcloud2-to-pclpointcloudt/) format for convenience.
+We simulate the Sick lidar on the topic `/AnyCarName/sim/lidar` as  [PointCloud2 message](http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html). After receiving the message in one of your nodes we recommend [converting the PointCloud2 message to a pcl](https://answers.ros.org/question/136916/conversion-from-sensor_msgspointcloud2-to-pclpointcloudt/) format for convenience.
 
 ## Maps
 We have prepared various urban and race maps that can be loaded into the simulator. 
@@ -50,7 +50,7 @@ Preview | ROS Map Name (local_comp_launch.launch)
 ![alt text](https://github.com/JohanVer/freicar_docs/raw/master/images/maps/freicar_race_2.png "") | freicar_race_2.aismap
 
 ## Competition Mode
-By default the simulator provides ground-truth localization (a tf-transform from /map to /car_name) and ground-truth odometry. However in the final competition this information won't be available. 
+By default, the simulator provides ground-truth localization (a tf-transform from /map to /car_name) and ground-truth odometry. However in the final competition this information won't be available. 
 In the ```local_comp_launch.launch``` a argument named ```comp_mode``` is defined (default: false). If ```comp_mode``` is set to true the ground-truth localization is not published anymore.
 The simulated odometry measurements are always overlaid with gaussian noise, no matter how the  ```comp_mode``` is set.
 
@@ -67,7 +67,7 @@ There are two ways to define the initial spawn pose of the car:
 1. The freicar_carla_proxy node provides the parameters ```spawn/x```, ```spawn/y```, ```spawn/z``` and ```spawn/heading``` that can be used to setup the initial pose.
  Note that if you use the ```sim_base.launch``` these parameters are getting overwritten by the values defined in this launch file.
  
-2. Additionally freicar_carla_proxy provides the parameter ```use_yaml_spawn```. Note again that if you use ```sim_base.launch``` the value gets overwritten by the file.
+2. Additionally, freicar_carla_proxy provides the parameter ```use_yaml_spawn```. Note again that if you use ```sim_base.launch``` the value gets overwritten by the file.
  If ```use_yaml_spawn``` is set to true the spawn pose will be read from the files located in ``` freicar_base/freicar_launch/spawn_positions ``` depending on the map that is defined by the global parameter ```map_path``` (set in ```sim_base.launch```).
  If the spawn position is used from the yaml file also the ros-parameter ``` spawn/x ``` etc will be set accordingly.
 
@@ -102,6 +102,6 @@ To do so, run: ```rosrun freicar_executables freicar_carla_agent_node 5```. This
 ## Using a Gamepad
 
 If you like you can use a gamepad to control your car. Just type: ```roslaunch freicar_launch start_joystick.launch name:=freicar_anyname``` where "freicar_anyname" is your car-name.
-We support currently xbox controllers but you could change the "FreiCar Joy" node to your needs (see [Freicar Overview](https://freicar-docs.readthedocs.io/nodes/freicar_overview/))
+We support currently xbox controllers, but you could change the "FreiCar Joy" node to your needs (see [Freicar Overview](https://freicar-docs.readthedocs.io/nodes/freicar_overview/))
 
 ![angle_definition](https://github.com/JohanVer/freicar_docs/raw/master/images/xbox_joy_buttons.png "")  
