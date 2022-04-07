@@ -8,7 +8,14 @@ nav:
     - FreiCar Map: nodes/freicar_map.md
     - FreiCar Agent: nodes/freicar_agent.md
     - Competition Rules: competition_rules.md
-    #- Competition Checklist: competition_checklist.md
-    - Presentation Rules: presentation_rules.md
-    - Code Style: code_style.md
+    - Mechanical Assembly:
+        - 'Index': 'assembly/index.md'
+        #- 'Car Preparation': 'assembly/car_prep.md'
+        - 'Subassemblies':
+            - 'ESC': 'assembly/esc_case.md'
+            - 'PC': 'assembly/pc_case.md'
+            - 'Front Sensors': 'assembly/front_sensor.md'
+            - 'Rear Sensors': 'assembly/rear_sensor.md'
+        - 'Car Integration': 'assembly/car_asm.md'
+
 theme: readthedocs
