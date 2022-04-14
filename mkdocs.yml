@@ -10,7 +10,6 @@ nav:
     - Competition Rules: competition_rules.md
     - Mechanical Assembly:
         - 'Index': 'assembly/index.md'
-        #- 'Car Preparation': 'assembly/car_prep.md'
         - 'Subassemblies':
             - 'ESC': 'assembly/esc_case.md'
             - 'PC': 'assembly/pc_case.md'
