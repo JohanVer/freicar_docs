@@ -12,7 +12,7 @@ This section explains how to start with developing in the FreiCar framework.
 
 For the FreiCar Course you can freely program any ROS node you want to have. However one node has to send the "Track Request".
 
-We prepared a template node [Freicar Agent](https://freicar-docs.readthedocs.io/nodes/freicar_agent/) for you that sends the "Track Request" and shows how to initialize a HD map, get the sensor data or requests a localization-pose from the tf-system. This node is a good starting point if you want to program in C++.
+We prepared a template node [Freicar Agent](https://freicar-docs.readthedocs.io/nodes/freicar_agent/) for you that sends the "Track Request" and shows how to initialize an HD map, get the sensor data or requests a localization-pose from the tf-system. This node is a good starting point if you want to program in C++.
 
 Overall, either you base on the template Freicar Agent node that has this functionality already, or you simply run the Freicar Agent node as it is in order to send the track request.
 

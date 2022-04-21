@@ -6,7 +6,7 @@ In the following, we'll give you a short overview of the ROS nodes we've develop
 
 ___
 # 1. FreiCar Agent
-This is the base node for all agents. Currently it:
+This is the base node for all agents. Currently, it:
 
 - Sends `Track` requests at start and shutdown
 - Publishes `FreiCarStatus` messages
@@ -18,7 +18,7 @@ This node handles all the necessary tasks that are related to the simulator:
 
 - Spawning the agent in CARLA
 - Setting up the sensors and publishing their information
-- Publishing the recevied pose on tf (simulated agents only)
+- Publishing the received pose on tf (simulated agents only)
 - Removing the agent from simulation at shutdown
 
 The sensor definition for each agent is a yaml file located at [`freicar_carla_proxy/param/sensors.yaml`](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_carla_proxy/param/sensors.yaml). You can read more about carla sensors [here](https://carla.readthedocs.io/en/latest/ref_sensors/).
@@ -35,7 +35,7 @@ The random seed is an optional argument. Providing it will change the behavior o
 
 ___
 # 4. FreiCar Chaperone
-The chaperone node is responsible for making sure the agents do not collide with eachother. It also makes sure the agents remain inside a specified boundary polygon.
+The chaperone node is responsible for making sure the agents do not collide with each other. It also makes sure the agents remain inside a specified boundary polygon.
 The chaperone node also serves `Track` requests. These help the chaperone node keep track of all the running agents and uses their tf information to predict where they might end up in the next few seconds.
 
 ___
@@ -64,13 +64,13 @@ All agents must subscribe to 'halt'. These messages usually come from the [chape
 The chaperone node publishes the names of the agents that are allowed to continue after being suspended. The message is just a string, published on `resume`. As with the FreiCarHalt message, all agents must subscribe to this topic.
 
 ### 5.1.5. [FreiCarStatus](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/msg/FreiCarStatus.msg)
-Each agent must publish a message of this type on  `freicar_status` at least once every second. The admin GUI uses these messages to provide an overview of all running agents. Currently they are published by [freicar_agent](#1-freicar-agent), but this could change as the we progress.
+Each agent must publish a message of this type on  `freicar_status` at least once every second. The admin GUI uses these messages to provide an overview of all running agents. Currently, they are published by [freicar_agent](#1-freicar-agent), but this could change as the we progress.
 
 ## 5.2. Services
 You can think of services as bidirectional ROS message. We currently have two services.
 
 ### 5.2.1. [Track Request](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/srv/Track.srv)
-Track requests are served by the [chaperone node](#4-freicar-chaperone). Each agent must send a track request at initialization, stating its name, the name of its tf frame and whether it's a scripted agent. The latter is only true for the scripted agents in the [freicar_carla_agent](#3-freicar-carla-agent) node. As the agent is shutting down, it must send another request with `bool track` set to false. Currently [freicar_agent](#1-freicar-agent) handles sending these track requests.
+Track requests are served by the [chaperone node](#4-freicar-chaperone). Each agent must send a track request at initialization, stating its name, the name of its tf frame and whether it's a scripted agent. The latter is only true for the scripted agents in the [freicar_carla_agent](#3-freicar-carla-agent) node. As the agent is shutting down, it must send another request with `bool track` set to false. Currently, [freicar_agent](#1-freicar-agent) handles sending these track requests.
 
 ### 5.2.2. [WayPoint Request](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/srv/WayPoint.srv)
 This is a deprecated service in `freicar_map`. It has the same functionality as `freicar::planning::lane_follower::GetPlan(...)`. It'll most likely be removed in a future commit.

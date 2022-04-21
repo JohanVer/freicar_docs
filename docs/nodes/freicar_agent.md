@@ -22,6 +22,7 @@ public:
 		std::string name;
 		std::string owner;
 		std::string tf_name;
+		std::string map_path;
 	};
 	~FreiCarAgent();
 	FreiCarAgent(FreiCarAgent::Settings settings, std::shared_ptr<ros::NodeHandle> nh);
@@ -54,8 +55,9 @@ This struct contains the parameters that are set via ROS or read from the host:
 - **name**: local ROS parameter set by the launch file
 - **owner**: "username@hostname"
 - **tf_name**: name of the tf frames for this agent (same as name for simulated agents)
+- **map_path**: initialize the map from this file if not received over the network
 
-Note that if any of these parameters are missing, the node exits abrputly. E.g. `thread_sleep_ms` relies on `freicar_setting` for the `sim_sps` parameter. If that node is not running, intialization fails.
+Note that if any of these parameters are missing, the node exits abruptly. E.g. `thread_sleep_ms` relies on `freicar_setting` for the `sim_sps` parameter. If that node is not running, intialization fails.
 
 # 2. Public Functions
 ## 2.1. FreiCarAgent()
@@ -63,7 +65,7 @@ In the constructor, the static parts of messages are set, the publishers and sub
 ## 2.2. SendTrackRequest()
 This function is responsible for sending a `Track` request to chaperone. As mentioned in the overview, chaperone is responsible for making sure the agents don't collide. Multiple assumptions are made when sending these requests:
 
-1. The chaperone node is running. If not, the track reuqest fails and the node exits.
+1. The chaperone node is running. If not, the track request fails and the node exits.
 2. The parallel `carla_proxy` node is manually SIGINT'd, if the track request fails for any reason. That way [hopefully] the agent is also removed from the simulator. Although this is not a serious problem, it helps avoid restarting the simulator every time this node fails.
 3. This node is manually SIGINT'd, if the parallel `carla_prxoy` node crashes for any reason so that a stop-track request can be sent.
 
@@ -99,10 +101,10 @@ void FreiCarAgent::Step(unsigned int thread_sleep_ms) {
 In each iteration, the current pose is updated via `tf.lookupTransform`. The two functions `PublishStatus` and `PublishLocalization` take care of publishing necessary messages for each agent. The subsequent call also publishes a basic 3D model for visualization on RVIZ. Naturally this is not a necessary task and can be commented out.
 
 ## 3.2. Halt and Resume Callbacks
-These messages are usually sent from the chaperone node. When a `Halt` message is received, the agent is expected to stop in the shortest distance possible. Currently we only keep track of the suspensions using a flag, a string and an enum to indicate the state, the other agent involved in the suspension event and the type of the suspension respectively. The different types of suspension can be looked up in the [`HaltType` enum](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/include/freicar_common/shared/halt_type.h#L10). When the suspension is lifted, the agent is allowed to resume its activity.
+These messages are usually sent from the chaperone node. When a `Halt` message is received, the agent is expected to stop in the shortest distance possible. Currently, we only keep track of the suspensions using a flag, a string and an enum to indicate the state, the other agent involved in the suspension event and the type of the suspension respectively. The different types of suspension can be looked up in the [`HaltType` enum](https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_base/-/blob/master/freicar_common/include/freicar_common/shared/halt_type.h#L10). When the suspension is lifted, the agent is allowed to resume its activity.
 
 ## 3.3. RGBCallback
-This is the callback function for RGB images. Currently they are published in the `carla_proxy` node.
+This is the callback function for RGB images. Currently, they are published in the `carla_proxy` node.
 ```cpp
 void FreiCarAgent::RGBCallback(const sensor_msgs::ImageConstPtr& msg) {
 	cv_bridge::CvImagePtr cv_ptr;
