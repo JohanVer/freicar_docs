@@ -18,7 +18,7 @@ In the following we describe the individual steps to make your pc ready!
     - `sudo apt-get install nvidia-driver-460`
     - restart your pc
 - Clone the following repo to your pc (the hdd should have 50 gb free)
-    - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/vertensj/freicar_docker.git`
+    - `git clone --recurse-submodules https://aisgit.informatik.uni-freiburg.de/freicar/freicar_docker.git`
 - enter the cloned repo : `cd freicar_docker`
 - install docker-ce and nvidia-docker with our script: `./install_docker.bash`
 - Restart your computer (otherwise the docker demon might not be started)
