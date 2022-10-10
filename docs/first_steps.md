@@ -2,11 +2,12 @@
 
 This section explains how to start with developing in the FreiCar framework.
 
-1. As the first step you should start the simulator by starting ```local_comp_launch.launch```. For this please read the [Simulator section](https://freicar-docs.readthedocs.io/simulator/) section.
-2. Now the simulator should be started and you are ready to spawn your car.
+1. The first time, you want to start the FreiCar framework, you have to build all ROS packages. Go to `~/freicar_ws` and run `catkin build`. Afterwards, you might have to resource by typing `source devel/setup.bash`.
+2. As the first step you should start the simulator by starting ```local_comp_launch.launch```. For this please read the [Simulator section](https://freicar-docs.readthedocs.io/simulator/) section.
+3. Now the simulator should be started and you are ready to spawn your car.
  Run ``` roslaunch freicar_agent spawn_car.launch name:=freicar_anyname tf_name:=freicar_anyname spawn/x:=0 spawn/y:=0 spawn/z:=0 spawn/heading:=20 use_yaml_spawn:=true sync_topic:=! ```.
   Now your car "freicar_anyname" is spawned in the world and all sensors of the respective car are running. The car-name should be changeable throughout the course, so do not hardcode the name in your future own programs but use always ros-parameters.
-3. Now start the [Rviz](http://wiki.ros.org/rviz#Overview) tool to visualize the world and the cars sensors. You should explore what data is available with ```rostopic list```
+4. Now start the [Rviz](http://wiki.ros.org/rviz#Overview) tool to visualize the world and the cars sensors. You should explore what data is available with ```rostopic list```
 
 # Start Programming your own Code
 
