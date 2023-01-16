@@ -2,20 +2,20 @@ site_name: FreiCar Docs
 nav:
     - Software:
         - Home: 'index.md'
-        - Environment: 'environment.md'
-        - Simulator: 'simulator.md'
-        - First Steps: 'first_steps.md'
-        - FreiCar Overview: 'nodes/freicar_overview.md'
-        - FreiCar Map: 'nodes/freicar_map.md'
-        - FreiCar Agent: 'nodes/freicar_agent.md'
-#        - Competition Rules: 'competition_rules.md'
-        # - Code Style: 'code_style.md'
-    - Mechanical Assembly:
-        - Subassemblies: 'assembly/index.md'
-#        - Subassembly - ESC: 'assembly/esc_case.md'
-#        - Subassembly - PC: 'assembly/pc_case.md'
-#        - Subassembly - Front Sensors: 'assembly/front_sensor.md'
-#        - Subassembly - Rear Sensors: 'assembly/rear_sensor.md'
-        - Car Integration: 'assembly/car_asm.md'
+#        - Environment: 'environment.md'
+#        - Simulator: 'simulator.md'
+#        - First Steps: 'first_steps.md'
+#        - FreiCar Overview: 'nodes/freicar_overview.md'
+#        - FreiCar Map: 'nodes/freicar_map.md'
+#        - FreiCar Agent: 'nodes/freicar_agent.md'
+##        - Competition Rules: 'competition_rules.md'
+#        # - Code Style: 'code_style.md'
+#    - Mechanical Assembly:
+#        - Subassemblies: 'assembly/index.md'
+##        - Subassembly - ESC: 'assembly/esc_case.md'
+##        - Subassembly - PC: 'assembly/pc_case.md'
+##        - Subassembly - Front Sensors: 'assembly/front_sensor.md'
+##        - Subassembly - Rear Sensors: 'assembly/rear_sensor.md'
+#        - Car Integration: 'assembly/car_asm.md'
 
 theme: readthedocs
